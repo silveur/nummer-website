@@ -8,7 +8,9 @@
 
 
     <body>
-   	
+   <video autoplay loop poster="" id="bgvid">
+<source src="videos/a.mp4" type="video/mp4">
+</video>	
 
 
     </body>
