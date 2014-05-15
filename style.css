@@ -1,16 +1,10 @@
 
 body
 {
-margin-left:0;
-margin-right:0;
-width:100%;
 background-image:url("./images/a.jpg");
 background-color:#000000;
 background-repeat: no-repeat;
+background-attachment:fixed;
+background-position:center;
 }
 
-body.resize
-{
-width:100%;
-height:100%;
-}
