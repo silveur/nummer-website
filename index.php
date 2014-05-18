@@ -8,9 +8,13 @@
 
 
     <body>
+<?php
+	$r=rand(0,270);
+?>
+
    <video autoplay loop poster="" id="bgvid">
-<source src="videos/a.mp4" type="video/mp4">
-</video>	
+<source src="videos/a.webm" type="video/webm">
+</video>
 
 
     </body>
