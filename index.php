@@ -8,14 +8,17 @@
 
 
     <body>
+
 <?php
 	$r=rand(0,270);
+	echo $r;
+
+	$vid = "./videos/a.webm#t=" . $r;
+	echo $vid;
+	echo "<video autoplay loop id='bgvid'>";
+	echo "<source src=$vid type='video/webm'>";
+	echo "</video>";
 ?>
-
-   <video autoplay loop poster="" id="bgvid">
-<source src="videos/a.webm" type="video/webm">
-</video>
-
 
     </body>
 </html>
