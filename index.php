@@ -28,6 +28,12 @@
 	echo "<source src=$vid type='video/mp4'>";
 	echo "</video>";
 ?>
+	<div>
+		<p><a href="http://www.soundcloud.com/nummer">soundcloud</a></p>
+		<p><a href="http://www.facebook.com/nummer.music">facebook</a></p>
+		<p><a href="./sequencer.html">lab</a></p>
+		<p><a href="mailto:contact@nummermusic.com">contact</a></p>
+	</div>
 
     </body>
 </html>
