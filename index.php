@@ -10,13 +10,22 @@
     <body>
 
 <?php
-	$r=rand(0,270);
-	echo $r;
+	$vid_index=rand(1,2);
+	$vid = "";
+	$r = 0;
+	if ($vid_index == 1)
+	{
+		$r=rand(0,218);
+		$vid = "./videos/1.mp4#t=" . $r;
+	}
+	else if ($vid_index == 2)
+	{
+		$r=rand(0,141);
+		$vid = "./videos/2.mp4#t=" . $r;
+	}
 
-	$vid = "./videos/a.webm#t=" . $r;
-	echo $vid;
 	echo "<video autoplay loop id='bgvid'>";
-	echo "<source src=$vid type='video/webm'>";
+	echo "<source src=$vid type='video/mp4'>";
 	echo "</video>";
 ?>
 
