@@ -5,8 +5,21 @@
         <link rel="stylesheet" type="text/css" href="style.css">
         <title>Nummer music</title>
     </head>
-
-
+<style>
+p
+{
+margin-left:50px;
+color:red;
+}
+</style>
+<script type="text/javascript">
+function displayWidth()
+{
+	var screenWidth = window.screen.width,
+	var screenHeight = window.screen.height;
+	document.write(screenHeight);
+}
+</script>
     <body>
 
 <?php
@@ -24,14 +37,17 @@
 		$vid = "./videos/2.mp4#t=" . $r;
 	}
 
-	echo "<video autoplay loop id='bgvid'>";
-	echo "<source src=$vid type='video/mp4'>";
-	echo "</video>";
+	// echo "<video autoplay loop id='bgvid'>";
+	// // echo "<source src=$vid type='video/mp4'>";
+	// echo "</video>";
 ?>
+	<script type="text/javascript"> 
+	displayWidth();
+	</script>
 	<div>
 		<p><a href="http://www.soundcloud.com/nummer">soundcloud</a></p>
 		<p><a href="http://www.facebook.com/nummer.music">facebook</a></p>
-		<p><a href="./sequencer.html">lab</a></p>
+		<!-- <p><a href="./sequencer.html">lab</a></p> -->
 		<p><a href="mailto:contact@nummermusic.com">contact</a></p>
 	</div>
 
