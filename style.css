@@ -7,8 +7,7 @@
 
 body
 {
-	font-family: 'Raspoutine Medium', Arial, Helvetica, san-serif;
-	#background-image:url("./images/a.jpg");
+	font-family: 'Raspoutine Medium', Arial, Helvetica, sans-serif;
 	background-color:black;
 	background-repeat: no-repeat;
 	background-attachment:fixed;
@@ -26,8 +25,15 @@ video#bgvid
 	background: no-repeat;
 	background-size: cover;
 }
+#header
+{
+	font-family: 'Montserrat', sans-serif;
+	font-size: 25px;
+	text-align: center;
+	color: white;
+}
 
-a:link {text-decoration:none;color:white}
+a:link {text-decoration:none;color:white;font-size: 11pt;}
 a:visited {text-decoration:none;color:white;background-color:black;}
 a:hover {color:black;background-color:#ffffff;}
 a:active {text-decoration:none;}
