@@ -12,9 +12,10 @@
 	function getWindowBoundaries()
 	{
 		var w = window, d = document, e = d.documentElement, g = d.getElementsByTagName('body')[0],
-	    windowWidth = w.innerWidth || e.clientWidth || g.clientWidth,
-	    windowHeigth = w.innerHeight|| e.clientHeight|| g.clientHeight;
-	    debug('Width:' + windowHeigth.toString() + ' Heigth: ' + windowWidth.toString());
+	    width = w.innerWidth || e.clientWidth || g.clientWidth,
+	    heigth = w.innerHeight|| e.clientHeight|| g.clientHeight;
+	    windowWidth = width; windowHeigth = heigth;
+	    debug('Width:' + heigth.toString() + ' Heigth: ' + width.toString());
 	}
 	function getRandomVideo()
     {
@@ -28,27 +29,35 @@
 	{
 		var printVideo = " <video autoplay loop id='bgvid'> " +
 							"<source src=" + videoUrl + " type='video/mp4'> " + "</video>" ; 
-
-		debug('video: ' + printVideo);
 		document.getElementById("bgvid").innerHTML = printVideo;
 	}
- 
+	function printLinks()
+	{
+		var xRand = Math.floor((Math.random() * (windowWidth*0.4)) + (windowWidth * 0.25)).toString() + "px ";
+		var yRand = Math.floor((Math.random() * (windowHeigth*0.35)) + (windowHeigth * 0.2)).toString() + "px ";
+		document.getElementById("textID").style.margin = yRand + " 0px 0px " + xRand ;
+	}
+ 	
 	</script>
     
-
-
     <body>
-    	
+		<p id="bgvid"></p>
+		<div id="textID">
 
-	<p id="bgvid"></p>
+			<a href='http://www.soundcloud.com/nummer'>soundcloud</a><br>
+			<a href="http://www.facebook.com/nummer.music">facebook</a><br>
+			<a href="./sequencer.html">lab</a><br>
+			<a href="mailto:contact@nummermusic.com">contact</a><br>
 
-<!-- 	<div>
-		<p><a href="http://www.soundcloud.com/nummer">soundcloud</a></p>
-		<p><a href="http://www.facebook.com/nummer.music">facebook</a></p>
-		<p><a href="./sequencer.html">lab</a></p>
-		<p><a href="mailto:contact@nummermusic.com">contact</a></p>
-	</div> -->
-	<script>getWindowBoundaries();getRandomVideo();printVideo();</script>
+		</div>
+
+		<script>
+			getWindowBoundaries();
+			getRandomVideo();
+			printVideo();
+			printLinks();
+		</script>
+
     </body>
 </html>
 
