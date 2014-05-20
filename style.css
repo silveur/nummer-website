@@ -1,6 +1,13 @@
 
+@font-face 
+{
+	font-family: 'Raspoutine Medium';
+	src: url(./font/PrestigeEliteStd.otf);
+}
+
 body
 {
+	font-family: 'Raspoutine Medium', Arial, Helvetica, san-serif;
 	#background-image:url("./images/a.jpg");
 	background-color:black;
 	background-repeat: no-repeat;
