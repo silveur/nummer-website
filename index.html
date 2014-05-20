@@ -50,8 +50,18 @@
 		{
 			var x = Math.floor((windowWidth/4)*3).toString() + "px";
 			var y = Math.floor(windowHeigth/5).toString() + "px";
-			document.getElementById("textID").style.visibility = "visible";
-			document.getElementById("textID").style.margin = y + " 0px 0px " + x ;
+			document.getElementById("textID").style.display = "none";
+			document.getElementById("textID").style.margin = y + " 0px 0px " + x ;			
+		}
+		function toggleVisibility()
+		{
+			var oElm = document.getElementById("textID"); var strValue;
+			if(document.defaultView && document.defaultView.getComputedStyle)
+			{
+				strValue = document.defaultView.getComputedStyle(oElm, null).getPropertyValue("display");
+				if (oElm.style.display == "none") oElm.style.display = "block";
+				else oElm.style.display = "none";				
+			}
 		}
 		function printH1()
 		{
@@ -60,9 +70,8 @@
 		}
 	</script>
 
-	<body  onclick="printLinks()">
+	<body  onclick="toggleVisibility()">
 		<p id="bgvid"></p>
-		<!-- <div id="header"> NUMMER MUSIC </div> -->
 		<div id="textID">
 			<a href='http://www.soundcloud.com/nummer'>soundcloud</a><br>
 			<a href="http://www.facebook.com/nummer.music">facebook</a><br>
@@ -74,8 +83,7 @@
 			getWindowBoundaries();
 			getRandomVideo();
 			printVideo();
-			// printLinks();
-			// printH1();
+			printLinks();
 		</script>
 
 	</body>
