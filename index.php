@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <title>Nummer music</title>
-    </head>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<title>Nummer music</title>
+	</head>
 
-    <script src="js/scripts.js"></script>
-    <script>
-    var windowWidth; var windowHeigth; var videoIndex; var videoOffset; var videoUrl;
+	<script src="js/scripts.js"></script>
+	<script>
+	var windowWidth; var windowHeigth; var videoIndex; var videoOffset; var videoUrl;
 	function getWindowBoundaries()
 	{
 		var w = window, d = document, e = d.documentElement, g = d.getElementsByTagName('body')[0],
-	    width = w.innerWidth || e.clientWidth || g.clientWidth,
-	    heigth = w.innerHeight|| e.clientHeight|| g.clientHeight;
-	    windowWidth = width; windowHeigth = heigth;
-	    debug('Width:' + heigth.toString() + ' Heigth: ' + width.toString());
+		width = w.innerWidth || e.clientWidth || g.clientWidth,
+		heigth = w.innerHeight|| e.clientHeight|| g.clientHeight;
+		windowWidth = width; windowHeigth = heigth;
+		debug('Width:' + heigth.toString() + ' Heigth: ' + width.toString());
 	}
 	function getRandomVideo()
-    {
-    	videoIndex = Math.floor(1 + Math.random()*2);
-    	if (videoIndex == 1) videoOffset = Math.floor(Math.random() * 218);
-    	else if (videoIndex ==2 ) videoOffset = Math.floor(Math.random() * 141);
-    	videoUrl = "./videos/" + videoIndex + ".mp4#t=" + videoOffset;
-    	
+	{
+		videoIndex = Math.floor(1 + Math.random()*2);
+		if (videoIndex == 1) videoOffset = Math.floor(Math.random() * 218);
+		else if (videoIndex ==2 ) videoOffset = Math.floor(Math.random() * 141);
+		videoUrl = "./videos/" + videoIndex + ".mp4#t=" + videoOffset;
 	}
 	function printVideo()
 	{
@@ -39,8 +38,8 @@
 	}
  	
 	</script>
-    
-    <body>
+
+	<body>
 		<p id="bgvid"></p>
 		<div id="textID">
 
@@ -58,9 +57,5 @@
 			printLinks();
 		</script>
 
-    </body>
+	</body>
 </html>
-
-
-
-
