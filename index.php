@@ -3,8 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<link rel="stylesheet" type="text/css" href="style.css">
-		<link href='http://fonts.googleapis.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
-		<link rel="icon" type="image/jpg" href="images/faviconpasanim.jpg">
+		<link rel="icon" type="image/jpg" href="images/favicon14px.jpg">
 		<title>NUMMER MUSIC</title>
 	</head>
 
@@ -42,6 +41,7 @@
 	{
 		var x = Math.floor((windowWidth/4)*3).toString() + "px";
 		var y = Math.floor(windowHeigth/5).toString() + "px";
+		document.getElementById("textID").style.visibility = "visible";
 		document.getElementById("textID").style.margin = y + " 0px 0px " + x ;
 	}
 	function printH1()
@@ -52,9 +52,9 @@
  	
 	</script>
 
-	<body>
+	<body  onclick="printLinks()">
 		<p id="bgvid"></p>
-		<div id="header"> NUMMER MUSIC </div>
+		<!-- <div id="header"> NUMMER MUSIC </div> -->
 		<div id="textID">
 			<a href='http://www.soundcloud.com/nummer'>soundcloud</a><br>
 			<a href="http://www.facebook.com/nummer.music">facebook</a><br>
@@ -66,8 +66,8 @@
 			getWindowBoundaries();
 			getRandomVideo();
 			printVideo();
-			printLinks();
-			printH1();
+			// printLinks();
+			// printH1();
 		</script>
 
 	</body>
