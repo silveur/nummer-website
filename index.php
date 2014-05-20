@@ -5,51 +5,53 @@
         <link rel="stylesheet" type="text/css" href="style.css">
         <title>Nummer music</title>
     </head>
-<style>
-p
-{
-margin-left:50px;
-color:red;
-}
-</style>
-<script type="text/javascript">
-function displayWidth()
-{
-	var screenWidth = window.screen.width,
-	var screenHeight = window.screen.height;
-	document.write(screenHeight);
-}
-</script>
-    <body>
 
-<?php
-	$vid_index=rand(1,2);
-	$vid = "";
-	$r = 0;
-	if ($vid_index == 1)
+    <script src="js/scripts.js"></script>
+    <script>
+    var windowWidth; var windowHeigth; var videoIndex; var videoOffset; var videoUrl;
+	function getWindowBoundaries()
 	{
-		$r=rand(0,218);
-		$vid = "./videos/1.mp4#t=" . $r;
+		var w = window, d = document, e = d.documentElement, g = d.getElementsByTagName('body')[0],
+	    windowWidth = w.innerWidth || e.clientWidth || g.clientWidth,
+	    windowHeigth = w.innerHeight|| e.clientHeight|| g.clientHeight;
+	    debug('Width:' + windowHeigth.toString() + ' Heigth: ' + windowWidth.toString());
 	}
-	else if ($vid_index == 2)
+	function getRandomVideo()
+    {
+    	videoIndex = Math.floor(1 + Math.random()*2);
+    	if (videoIndex == 1) videoOffset = Math.floor(Math.random() * 218);
+    	else if (videoIndex ==2 ) videoOffset = Math.floor(Math.random() * 141);
+    	videoUrl = "./videos/" + videoIndex + ".mp4#t=" + videoOffset;
+    	
+	}
+	function printVideo()
 	{
-		$r=rand(0,141);
-		$vid = "./videos/2.mp4#t=" . $r;
-	}
+		var printVideo = " <video autoplay loop id='bgvid'> " +
+							"<source src=" + videoUrl + " type='video/mp4'> " + "</video>" ; 
 
-	// echo "<video autoplay loop id='bgvid'>";
-	// // echo "<source src=$vid type='video/mp4'>";
-	// echo "</video>";
-?>
-	<script type="text/javascript"> 
-	displayWidth();
+		debug('video: ' + printVideo);
+		document.getElementById("bgvid").innerHTML = printVideo;
+	}
+ 
 	</script>
-	<div>
+    
+
+
+    <body>
+    	
+
+	<p id="bgvid"></p>
+
+<!-- 	<div>
 		<p><a href="http://www.soundcloud.com/nummer">soundcloud</a></p>
 		<p><a href="http://www.facebook.com/nummer.music">facebook</a></p>
-		<!-- <p><a href="./sequencer.html">lab</a></p> -->
+		<p><a href="./sequencer.html">lab</a></p>
 		<p><a href="mailto:contact@nummermusic.com">contact</a></p>
-	</div>
-
+	</div> -->
+	<script>getWindowBoundaries();getRandomVideo();printVideo();</script>
     </body>
 </html>
+
+
+
+
