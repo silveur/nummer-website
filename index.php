@@ -4,7 +4,8 @@
 		<meta charset="utf-8" />
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<link href='http://fonts.googleapis.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
-		<title>Nummer music</title>
+		<link rel="icon" type="image/jpg" href="images/faviconpasanim.jpg">
+		<title>NUMMER MUSIC</title>
 	</head>
 
 	<script src="js/scripts.js"></script>
