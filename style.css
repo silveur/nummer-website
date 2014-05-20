@@ -13,6 +13,9 @@ body
 	background-repeat: no-repeat;
 	background-attachment:fixed;
 	background-position:center;
+	font-size: 11pt;
+	line-height: 17pt;
+	letter-spacing:1pt;
 }
 
 video#bgvid 
@@ -20,11 +23,11 @@ video#bgvid
 	position: fixed; right: 0; bottom: 0;
 	min-width: 100%; min-height: 100%;
 	width: auto; height: auto; z-index: -100;
-	background: url(polina.jpg) no-repeat;
+	background: no-repeat;
 	background-size: cover;
 }
 
-a:link {text-decoration:none;color:white}    /* unvisited link */
-a:visited {text-decoration:none;color:white;background-color:black;} /* visited link */
-a:hover {color:black;background-color:#ffffff;}   /* mouse over link */
-a:active {text-decoration:none;}  /* selected link */
+a:link {text-decoration:none;color:white}
+a:visited {text-decoration:none;color:white;background-color:black;}
+a:hover {color:black;background-color:#ffffff;}
+a:active {text-decoration:none;}
