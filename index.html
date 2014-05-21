@@ -48,13 +48,12 @@
 		}
 		function printVideo()
 		{
-			var printVideo = 	"<video loop id='bgvid'> " +
+			var printVideo = 	"<video loop preload='auto' id='bgvid'> " +
 								"<source src=" + videoUrlMp4 + 
 								"<source src=" + videoUrlWebm +
 								"<source src=" + videoUrlOgg + 
 								"</video>" ; 
 			document.getElementById("videoID").innerHTML = printVideo;
-			debug(printVideo);
 		}
 		function startVideo()
 		{
@@ -80,8 +79,14 @@
 		$( document ).ready(function() 
 		{
 				startVideo();
-				setTimeout( function() 
-				{ document.getElementById("videoID").style.visibility="visible";} , 300);	
+				var intervalIndex = setInterval(function()
+				{
+					if (document.getElementById("bgvid").readyState == 4)
+					{
+						document.getElementById("videoID").style.visibility="visible";
+						clearInterval(intervalIndex);
+					}
+				}, 50);
 		});
 		$("body").click(function()
 		{
