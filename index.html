@@ -18,9 +18,7 @@
 	</script>
 
 	<body>
-		<p id="videoID" style="visibility:hidden">
-			
-		</p>
+		<p id="videoID" style="visibility:hidden"></p>
 		<div id="textID">
 			<a href='http://www.soundcloud.com/nummer'>soundcloud</a><br>
 			<a href="http://www.facebook.com/nummer.music">facebook</a><br>
@@ -83,22 +81,18 @@
 		{
 				startVideo();
 				setTimeout( function() 
-				{ document.getElementById("videoID").style.visibility="visible";} , 300);
-				
-				
+				{ document.getElementById("videoID").style.visibility="visible";} , 300);	
 		});
 		$("body").click(function()
 		{
 			toggleVisibility();
 		});
-
-	</script>
-	<script>
-			getWindowBoundaries();
-			getRandomVideo();
-			printVideo();
-			printLinks();
-			
+		
+		getWindowBoundaries();
+		getRandomVideo();
+		printVideo();
+		printLinks();
+		
 		</script>
 	</body>
 </html>
