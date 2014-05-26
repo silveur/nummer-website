@@ -72,8 +72,7 @@ function toggleVisibility()
 function showVimeo()
 {
 	showVideo(0);
-	var printVimeo = 	"<iframe src='//player.vimeo.com/video/95671503' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>"; 
-						debug(printVimeo);
+	var printVimeo = 	"<iframe src='//player.vimeo.com/video/95671503?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff&amp;autoplay=1' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>"; 
 	document.getElementById("vimeoID").innerHTML = printVimeo;
 
 	var x = Math.floor((windowWidth/4)*2).toString() + "px";
