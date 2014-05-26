@@ -72,12 +72,18 @@ function toggleVisibility()
 function showVimeo()
 {
 	showVideo(0);
-	var printVimeo = 	"<iframe src='//player.vimeo.com/video/95671503' " + 
-						" width=' " + windowWidth/2 + 
-						"' height=' " + windowHeigth/2 + 
-						"' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>"; 
+	var printVimeo = 	"<iframe src='//player.vimeo.com/video/95671503' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>"; 
 						debug(printVimeo);
 	document.getElementById("vimeoID").innerHTML = printVimeo;
+
+	var x = Math.floor((windowWidth/4)*2).toString() + "px";
+	var y = Math.floor(windowHeigth/1.5).toString() + "px";
+	// document.getElementById("vimeoID").style.margin = y + " 0px 0px " + x ;	
+	document.getElementById("vimeoID").style.width = x;	
+	document.getElementById("vimeoID").style.left = (windowWidth/4).toString() + "px";	
+	document.getElementById("vimeoID").style.height = y;
+	document.getElementById("vimeoID").style.top = (windowHeigth/5).toString() + "px";	
+
 	document.getElementById("vimeoID").style.visibility="visible";
 }
 function hideVimeo()
