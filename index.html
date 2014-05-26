@@ -13,8 +13,11 @@
 		<div id="textID" onclick="toggleVisibility()">
 			<a href='http://www.soundcloud.com/nummer' target="_blank">soundcloud</a><br>
 			<a href="http://www.facebook.com/nummer.music" target="_blank">facebook</a><br>
-			<!-- <a href="./sequencer.html">lab</a><br> -->
+			<a id="vimeo" href="#" onclick="showVimeo();">videos</a><br>
 			<a href="mailto:contact@nummermusic.com">contact</a><br>
+		</div>
+		<div id="vimeoID" style="visibility:hidden">
+
 		</div>
 		<script>
 		$( document ).ready(function() 
@@ -28,7 +31,7 @@
 			{
 				if (document.getElementById("bgvid").readyState == 4)
 				{
-					document.getElementById("videoID").style.visibility="visible";
+					showVideo(1);
 					clearInterval(intervalIndex);
 				}
 			}, 50);

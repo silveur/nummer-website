@@ -45,6 +45,13 @@ function startVideo()
 {
 	$('#bgvid').get(0).play();
 }
+function showVideo(state)
+{
+	if (state)
+		document.getElementById("videoID").style.visibility="visible";
+	else
+		document.getElementById("videoID").style.visibility="hidden";
+}
 function printLinks()
 {
 	var x = Math.floor((windowWidth/4)*3).toString() + "px";
@@ -62,3 +69,19 @@ function toggleVisibility()
 		else oElm.style.display = "none";				
 	}
 }
+function showVimeo()
+{
+	showVideo(0);
+	var printVimeo = 	"<iframe src='//player.vimeo.com/video/95671503' " + 
+						" width=' " + windowWidth/2 + 
+						"' height=' " + windowHeigth/2 + 
+						"' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>"; 
+						debug(printVimeo);
+	document.getElementById("vimeoID").innerHTML = printVimeo;
+	document.getElementById("vimeoID").style.visibility="visible";
+}
+function hideVimeo()
+{
+
+}
+

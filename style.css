@@ -36,3 +36,8 @@ a:active {text-decoration:none;color:white;}
 {
 	display: none;
 }
+
+#vimeoID
+{
+	position: fixed;
+}
