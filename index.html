@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="icon" type="image/jpg" href="images/favicon14px.jpg">
+		<title>NUMMER MUSIC</title>
+	</head>
+	<script src="js/scripts.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<body>
+		<p id="videoID" style="visibility:hidden"></p>
+		<div id="textID" onclick="toggleVisibility()">
+			<a href='http://www.soundcloud.com/nummer' target="_blank">soundcloud</a><br>
+			<a href="http://www.facebook.com/nummer.music" target="_blank">facebook</a><br>
+			<!-- <a href="./sequencer.html">lab</a><br> -->
+			<a href="mailto:contact@nummermusic.com">contact</a><br>
+		</div>
+		<script>
+		$( document ).ready(function() 
+		{
+			getWindowBoundaries();
+			getRandomVideo();
+			printVideo();
+			printLinks();
+			startVideo();
+			var intervalIndex = setInterval(function()
+			{
+				if (document.getElementById("bgvid").readyState == 4)
+				{
+					document.getElementById("videoID").style.visibility="visible";
+					clearInterval(intervalIndex);
+				}
+			}, 50);
+			});
+			$("body").click(function()
+			{
+				toggleVisibility();
+		});
+	
+		</script>
+	</body>
+</html>
