@@ -49,8 +49,17 @@ function printLinks()
 {
 	var x = Math.floor((windowWidth/4)*3).toString() + "px";
 	var y = Math.floor(windowHeigth/5).toString() + "px";
-	document.getElementById("textID").style.display = "none";
+	// document.getElementById("textID").style.display = "none";
 	document.getElementById("textID").style.margin = y + " 0px 0px " + x ;			
+}
+function toggleArrowsVisibility()
+{
+	var arrows = document.getElementById("main");
+	if(document.defaultView && document.defaultView.getComputedStyle)
+	{
+		if (arrows.style.visibility == "hidden") { arrows.style.visibility = "visible"; }
+		else { arrows.style.visibility = "hidden";}				
+	}
 }
 function toggleVisibility()
 {
@@ -58,8 +67,8 @@ function toggleVisibility()
 	if(document.defaultView && document.defaultView.getComputedStyle)
 	{
 		strValue = document.defaultView.getComputedStyle(oElm, null).getPropertyValue("display");
-		if (oElm.style.display == "none") oElm.style.display = "block";
-		else oElm.style.display = "none";				
+		if (oElm.style.visibility == "hidden") { oElm.style.visibility = "visible";}
+		else { oElm.style.visibility = "hidden";}				
 	}
 }
 function showVideo(state)
@@ -79,12 +88,10 @@ function showVimeo(state)
 		document.getElementById("main").style.visibility = "visible";
 		var x = Math.floor((windowWidth/4)*2).toString() + "px";
 		var y = Math.floor(windowHeigth/1.5).toString() + "px";
-		// document.getElementById("vimeoID").style.margin = y + " 0px 0px " + x ;	
 		document.getElementById("vimeoID").style.width = x;	
 		document.getElementById("vimeoID").style.left = (windowWidth/4).toString() + "px";	
 		document.getElementById("vimeoID").style.height = y;
 		document.getElementById("vimeoID").style.top = (windowHeigth/5).toString() + "px";	
-
 		document.getElementById("vimeoID").style.visibility="visible";
 	}
 	else
@@ -94,9 +101,23 @@ function showVimeo(state)
 		showVideo(1);
 	}
 }
-
+function showNightJams(state)
+{
+	if (state)
+	{
+		document.getElementById("main").style.visibility = "visible";
+		showVideo(false);
+		document.getElementById("nightJams").innerHTML = "<br> Coming Soon";
+		document.getElementById("nightJams").style.visibility="visible";
+	}
+	else
+	{
+		document.getElementById("nightJams").style.visibility="hidden";
+	}
+}
 function backToMain()
 {
 	document.getElementById("main").style.visibility = "hidden";
 	showVimeo(0);
+	showNightJams(0);
 }
