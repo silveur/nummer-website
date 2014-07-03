@@ -26,4 +26,5 @@ while($row = mysqli_fetch_array($result)) {
   echo "</tr>";
 }
 
+mysql_close($con);
 ?>	
