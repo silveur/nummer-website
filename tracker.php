@@ -23,6 +23,8 @@ else
 	$currentConnexion = $row['NumConnexion'] + 1;
 	mysqli_query($con,"UPDATE UserInfos SET NumConnexion='$currentConnexion'
 	WHERE UserName='$UserName'");
+	mysqli_query($con,"UPDATE UserInfos SET StepsVersion='$StepsVersion'
+	WHERE UserName='$UserName'");
 	echo "Thanks for the infos." . "\n";
 }
 
