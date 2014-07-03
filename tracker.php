@@ -5,23 +5,8 @@ $OSVersion = htmlspecialchars($_GET["OSVersion"]);
 $StepsVersion = htmlspecialchars($_GET["StepsVersion"]);
 $Location = htmlspecialchars($_GET["Location"]);
 
-
-
-	// echo 'OSVersion: ' . $OSVersion . "\n";
-	// echo 'StepsVersion: ' . $StepsVersion . "\n";
-	// echo 'UserName: ' . $UserName . "\n";
-	// echo 'Location: ' . $Location . "\n";
-
 $con=mysqli_connect("localhost","root","root", "StepsTracker");
 if (mysqli_connect_errno()) echo "Failed to connect to MySQL: " . mysqli_connect_error();
-
-// $sql="CREATE TABLE UserInfos(UserName CHAR(30),OSVersion CHAR(30),StepsVersion CHAR(30),Location CHAR(2),NumConnexion INT)";
-// // Execute query
-// if (mysqli_query($con,$sql)) {
-//   echo "Table created successfully";
-// } else {
-//   echo "Error creating table: " . mysqli_error($con);
-// }
 
 $result = mysqli_query($con,"SELECT * FROM UserInfos
 WHERE UserName='$UserName'");
@@ -42,6 +27,5 @@ else
 }
 
 mysql_close($con);
-
 
 ?>
