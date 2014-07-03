@@ -1,7 +1,7 @@
 
 <?php
 
-$latest = '1.0.0';
+$latest = '1.1.0';
 $toCheck = htmlspecialchars($_GET["version"]);
 $toCheck = str_replace('.','', $toCheck);
 $latest = str_replace('.','', $latest);
