@@ -101,23 +101,9 @@ function showVimeo(state)
 		showVideo(1);
 	}
 }
-function showNightJams(state)
-{
-	if (state)
-	{
-		document.getElementById("main").style.visibility = "visible";
-		showVideo(false);
-		document.getElementById("nightJams").innerHTML = "<br> Coming Soon";
-		document.getElementById("nightJams").style.visibility="visible";
-	}
-	else
-	{
-		document.getElementById("nightJams").style.visibility="hidden";
-	}
-}
+
 function backToMain()
 {
 	document.getElementById("main").style.visibility = "hidden";
 	showVimeo(0);
-	showNightJams(0);
 }
