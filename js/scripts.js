@@ -25,9 +25,9 @@ function getWindowBoundaries()
 function getRandomVideo()
 {
 	videoIndex = Math.floor(1 + Math.random()*3);
-	if (videoIndex == 1) videoOffset = Math.floor(Math.random() * 218);
-	else if (videoIndex == 2 ) videoOffset = Math.floor(Math.random() * 141);
-	else if (videoIndex == 3 ) videoOffset = Math.floor(Math.random() * 294);
+	if (videoIndex == 1) videoOffset = 2 + (Math.floor(Math.random() * 60));
+	else if (videoIndex == 2 ) videoOffset = 2 + (Math.floor(Math.random() * 60));
+	else if (videoIndex == 3 ) videoOffset = 2 + (Math.floor(Math.random() * 45));
 	videoUrlMp4 = "./videos/" + videoIndex + ".mp4#t=" + videoOffset + " type='video/mp4'> ";
 	videoUrlWebm = "./videos/" + videoIndex + ".webm#t=" + videoOffset + " type='video/webm'> ";
 	videoUrlOgg = "./videos/" + videoIndex + ".ogv#t=" + videoOffset + " type='video/ogg'> ";
