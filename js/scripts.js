@@ -25,9 +25,9 @@ function getWindowBoundaries()
 function getRandomVideo()
 {
 	videoIndex = Math.floor(1 + Math.random()*3);
-	if (videoIndex == 1) videoOffset = Math.floor(Math.random() * 218);
-	else if (videoIndex == 2 ) videoOffset = Math.floor(Math.random() * 141);
-	else if (videoIndex == 3 ) videoOffset = Math.floor(Math.random() * 294);
+	if (videoIndex == 1) videoOffset = 2 + (Math.floor(Math.random() * 60));
+	else if (videoIndex == 2 ) videoOffset = 2 + (Math.floor(Math.random() * 60));
+	else if (videoIndex == 3 ) videoOffset = 2 + (Math.floor(Math.random() * 45));
 	videoUrlMp4 = "./videos/" + videoIndex + ".mp4#t=" + videoOffset + " type='video/mp4'> ";
 	videoUrlWebm = "./videos/" + videoIndex + ".webm#t=" + videoOffset + " type='video/webm'> ";
 	videoUrlOgg = "./videos/" + videoIndex + ".ogv#t=" + videoOffset + " type='video/ogg'> ";
@@ -49,7 +49,6 @@ function printLinks()
 {
 	var x = Math.floor((windowWidth/4)*3).toString() + "px";
 	var y = Math.floor(windowHeigth/5).toString() + "px";
-	// document.getElementById("textID").style.display = "none";
 	document.getElementById("textID").style.margin = y + " 0px 0px " + x ;			
 }
 function toggleArrowsVisibility()
@@ -64,7 +63,8 @@ function toggleArrowsVisibility()
 function toggleVisibility()
 {
 	var oElm = document.getElementById("textID"); var strValue;
-	if(document.defaultView && document.defaultView.getComputedStyle)
+	var videoVisible = document.getElementById("videoID").style.visibility;
+	if(document.defaultView && document.defaultView.getComputedStyle && videoVisible != "hidden")
 	{
 		strValue = document.defaultView.getComputedStyle(oElm, null).getPropertyValue("display");
 		if (oElm.style.visibility == "hidden") { oElm.style.visibility = "visible";}
@@ -83,11 +83,11 @@ function showVimeo(state)
 	if (state)
 	{
 		showVideo(0);
-		var printVimeo = "<iframe src='//player.vimeo.com/video/95671503?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff&amp;autoplay=1' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>"; 
+		var printVimeo = 	"<iframe src='//player.vimeo.com/video/102308140?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff&amp;autoplay=1' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <iframe src='//player.vimeo.com/video/95671503?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff&amp;autoplay=0' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> "; 
 		document.getElementById("vimeoID").innerHTML = printVimeo;
 		document.getElementById("main").style.visibility = "visible";
 		var x = Math.floor((windowWidth/4)*2).toString() + "px";
-		var y = Math.floor(windowHeigth/1.5).toString() + "px";
+		var y = Math.floor(windowHeigth/2).toString() + "px";
 		document.getElementById("vimeoID").style.width = x;	
 		document.getElementById("vimeoID").style.left = (windowWidth/4).toString() + "px";	
 		document.getElementById("vimeoID").style.height = y;
