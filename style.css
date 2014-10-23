@@ -5,6 +5,11 @@
 	src: url(./font/PrestigeEliteStd.otf);
 }
 
+html
+{
+    height: 100%;
+}
+
 body
 {
 	font-family: 'Raspoutine Medium', Arial, Helvetica, sans-serif;
@@ -15,6 +20,7 @@ body
 	font-size: 11px;
 	line-height: 17px;
 	letter-spacing:0px;
+	height: 100%;
 }
 
 video#bgvid 
@@ -39,16 +45,10 @@ a:active {text-decoration:none;color:white;}
 #textID
 {
 	/*display: none;*/
-}
-
-#nightJams
-{
-	color:white;
-	text-align: center;
-	font-size: 18px;
+	position: fixed;
 }
 
 #vimeoID
 {
-	position: fixed;
+	position: absolute;
 }
