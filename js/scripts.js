@@ -83,7 +83,7 @@ function showVimeo(state)
 	if (state)
 	{
 		showVideo(0);
-		var printVimeo = 	"<iframe src='//player.vimeo.com/video/102308140?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff&amp;autoplay=1' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <iframe src='//player.vimeo.com/video/95671503?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff&amp;autoplay=0' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> "; 
+		var printVimeo = "<iframe src='//player.vimeo.com/video/102308140?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff&amp;autoplay=1' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <iframe src='//player.vimeo.com/video/95671503?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff&amp;autoplay=0' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <iframe src='//player.vimeo.com/video/109970398?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff&amp;autoplay=0' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>"; 
 		document.getElementById("vimeoID").innerHTML = printVimeo;
 		document.getElementById("main").style.visibility = "visible";
 		var x = Math.floor((windowWidth/4)*2).toString() + "px";
