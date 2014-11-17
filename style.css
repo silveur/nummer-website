@@ -37,6 +37,17 @@ iframe
 	height: 100%;
 }
 
+h2
+{
+	color:white;
+}
+
+table, th, td
+{
+	border: 1px solid black;
+	color:white;
+}
+
 a:link {text-decoration:none;color:white;font-size: 11px;font-weight:normal;}
 a:visited {text-decoration:none;color:white;background-color:black;}
 a:hover {color:black;background-color:#ffffff;}
