@@ -54,7 +54,7 @@
 		{
 			$row = mysqli_fetch_array($result);
 			$credit = $row['Credit'];
-			
+			$zip;
 			if ($credit != "ALL")
 			{
 				$dir = "../audio/" . $credit;
@@ -74,13 +74,17 @@
 				        		$player = "<audio controls> <source src=" . $fileUrl . " type=audio/"  . $extension['extension'] . "></audio>";
 				           		echo "<tr> <td>" . $entry . "</td> <td>" . $player . "</td>" . "</tr>";
 				       		}
+				       		else if($extension['extension'] == "zip")
+				       		{
+				       			$zip = $fileUrl;
+				       		}
 				        }
 		    		}	
 		    	closedir($handle);
 				}			        	
 			}
 			echo "</table>";
-			echo '<p><a id="downloadButton" href=' . $fileUrl . ' onclick="incDLCount(\''.$credit.'\')"> Download release </a> </p>';
+			echo '<p><a id="downloadButton" href="' . $zip . '" onclick="incDLCount(\''.$credit.'\')"> Download release </a> </p>';
 		}
 		mysql_close($con);
 		?>
