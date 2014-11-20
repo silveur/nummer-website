@@ -9,15 +9,14 @@
 	<script src="js/scripts.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<body>
-
 		<?php
 
 		$con=mysqli_connect("localhost","root","root", "StepsTracker");
 		if (mysqli_connect_errno()) echo "Failed to connect to MySQL: " . mysqli_connect_error();
 
 		$result = mysqli_query($con,"SELECT * FROM UserInfos");
-
-		echo "<p><center> <table border='1'>
+		echo "<center><H2> Steps statistics</H2>";
+		echo "<table border='1'>
 		<tr>
 		<th>UserName </th>
 		<th>Operating System</th>
@@ -27,7 +26,8 @@
 
 		</tr>";
 
-		while($row = mysqli_fetch_array($result)) {
+		while($row = mysqli_fetch_array($result))
+		{
 		  echo "<tr>";
 		  echo "<td>" . $row['UserName'] . "</td>";
 		  echo "<td>" . $row['OSVersion'] . "</td>";
@@ -35,36 +35,35 @@
 		  echo "<td>" . $row['Location'] . "</td>";
 		  echo "<td>" . $row['NumConnexion'] . "</td>";
 
-		  echo "</tr><p>";
+		  echo "</tr>";
 		}
-
+		echo "</table>";
 		mysql_close($con);
 		?>	
-
+		
 		<?php
 
 		$con=mysqli_connect("localhost","root","root", "AudioDownloads");
 		if (mysqli_connect_errno()) echo "Failed to connect to MySQL: " . mysqli_connect_error();
 
 		$result = mysqli_query($con,"SELECT * FROM Voucher");
-
-		echo "<p><center><table border='1'>
+		echo "<H2>Downloads statistics</H2>";
+		echo "<table border='1'>
 		<tr>
 		<th>Release </th>
 		<th>Downloads</th>
 
 		</tr>";
 
-		while($row = mysqli_fetch_array($result)) {
+		while($row = mysqli_fetch_array($result))
+		{
 		  echo "<tr>";
 		  echo "<td>" . $row['Credit'] . "</td>";
 		  echo "<td>" . $row['DownloadCounter'] . "</td>";
-
-
-		  echo "</tr></p>";
+		  echo "</tr>";
 		}
-
 		mysql_close($con);
+		echo "</table>";
 		?>	
 	</body>
 </html>
