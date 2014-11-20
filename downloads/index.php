@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<link rel="stylesheet" type="text/css" href="/style.css">
-		<link rel="icon" type="image/jpg" href="images/favicon14px.jpg">
+		<link rel="icon" type="image/jpg" href="/images/favicon14px.jpg">
 		<title>NUMMER MUSIC</title>
 	</head>
 	<script src="js/scripts.js"></script>
