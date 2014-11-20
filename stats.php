@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="../style.css">
+		<link rel="icon" type="image/jpg" href="images/favicon14px.jpg">
+		<title>NUMMER MUSIC</title>
+	</head>
+	<script src="js/scripts.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<body>
+
+		<?php
+
+		$con=mysqli_connect("localhost","root","root", "StepsTracker");
+		if (mysqli_connect_errno()) echo "Failed to connect to MySQL: " . mysqli_connect_error();
+
+		$result = mysqli_query($con,"SELECT * FROM UserInfos");
+
+		echo "<p><center> <table border='1'>
+		<tr>
+		<th>UserName </th>
+		<th>Operating System</th>
+		<th>Software Version</th>
+		<th>Location </th>
+		<th>Total Usage </th>
+
+		</tr>";
+
+		while($row = mysqli_fetch_array($result)) {
+		  echo "<tr>";
+		  echo "<td>" . $row['UserName'] . "</td>";
+		  echo "<td>" . $row['OSVersion'] . "</td>";
+		  echo "<td>" . $row['StepsVersion'] . "</td>";
+		  echo "<td>" . $row['Location'] . "</td>";
+		  echo "<td>" . $row['NumConnexion'] . "</td>";
+
+		  echo "</tr><p>";
+		}
+
+		mysql_close($con);
+		?>	
+
+		<?php
+
+		$con=mysqli_connect("localhost","root","root", "AudioDownloads");
+		if (mysqli_connect_errno()) echo "Failed to connect to MySQL: " . mysqli_connect_error();
+
+		$result = mysqli_query($con,"SELECT * FROM Voucher");
+
+		echo "<p><center><table border='1'>
+		<tr>
+		<th>Release </th>
+		<th>Downloads</th>
+
+		</tr>";
+
+		while($row = mysqli_fetch_array($result)) {
+		  echo "<tr>";
+		  echo "<td>" . $row['Credit'] . "</td>";
+		  echo "<td>" . $row['DownloadCounter'] . "</td>";
+
+
+		  echo "</tr></p>";
+		}
+
+		mysql_close($con);
+		?>	
+	</body>
+</html>
