@@ -5,8 +5,34 @@
 		<link rel="stylesheet" type="text/css" href="../style.css">
 		<link rel="icon" type="image/jpg" href="images/favicon14px.jpg">
 		<title>Downloads</title>
+		<script>
+			function incDLCount(credit)
+			{
+				var xmlhttp;
+				if (credit=="")
+				{
+					document.getElementById("txtHint").innerHTML="";
+					return;
+				}
+				if (window.XMLHttpRequest) // code for IE7+, Firefox, Chrome, Opera, Safari
+				{
+					xmlhttp=new XMLHttpRequest();
+				}
+				else // code for IE6, IE5
+				{
+				  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+				}
+				xmlhttp.onreadystatechange=function()
+				{
+					if (xmlhttp.readyState==4 && xmlhttp.status==200)
+				    {}
+				}
+				xmlhttp.open("GET","../php/incDLCount.php?credit="+credit,true);
+				xmlhttp.send();
+			}
+		</script>
 	</head>
-	<script src="js/scripts.js"></script>
+	<script src="/js/scripts.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<body>
 		<?php
@@ -32,7 +58,7 @@
 			{
 				$dir = "../audio/" . $credit;
 				echo "<center> <img style='height:auto; width:auto; max-width:300px; max-height:300px;' src=" . $dir . "/artwork.jpg" . ">";
-				echo "<center><table border='1'";   		
+				echo "<center> <table border='1'";   		
 				if ($handle = opendir($dir)) 
 				{	
 		   			while (false !== ($entry = readdir($handle))) 
@@ -44,22 +70,18 @@
 				        	$extension = pathinfo($fileUrl);
 				        	if ($extension['extension'] == "zip")
 				        	{
-				        		echo "<p><a href=" . $fileUrl . "><button>Download release</button></a> </p>";
+				        		echo '<p><a href=' . $fileUrl . ' onclick="incDLCount(\''.$credit.'\')"> Download release </a> </p>';
 				        	}
 				        	else if ($extension['extension'] == "mp3" || $extension['extension'] == "wav")
 				        	{
 				        		$player = "<audio controls> <source src=" . $fileUrl . " type=audio/"  . $extension['extension'] . "></audio>";
 				           		echo "<tr> <td>" . $entry . "</td> <td>" . $player . "</td>" . "</td></tr>";
 				       		}
-
 				        }
 		    		}	
-		    		
-		    		closedir($handle);
+		    	closedir($handle);
 				}
 			}
-			else
-			{}
 			echo "</table></center>";
 		}
 		mysql_close($con);
