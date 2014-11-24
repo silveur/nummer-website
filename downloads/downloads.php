@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<link rel="stylesheet" type="text/css" href="../style.css">
-		<link rel="icon" type="image/jpg" href="images/favicon14px.jpg">
+		<link rel="icon" type="image/jpg" href="/images/favicon14px.jpg">
 		<title>Downloads</title>
 		<script>
 			function incDLCount(credit)
@@ -35,6 +35,7 @@
 	<script src="/js/scripts.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<body>
+		<center>
 		<?php
 
 		$Voucher = htmlspecialchars($_GET["code"]);
@@ -53,14 +54,15 @@
 		{
 			$row = mysqli_fetch_array($result);
 			$credit = $row['Credit'];
-			
+			$zip;
 			if ($credit != "ALL")
 			{
 				$dir = "../audio/" . $credit;
-				echo "<center> <img style='height:auto; width:auto; max-width:300px; max-height:300px;' src=" . $dir . "/artwork.jpg" . ">";
-				echo "<center> <table border='1'";   		
+				echo "<img id='flyer' style='height:auto; width:auto; max-width:300px; max-height:400px;' src=" . $dir . "/artwork.jpg" . ">";
+				echo "<table id='songArray' border='1'";   		
 				if ($handle = opendir($dir)) 
 				{	
+					$array = array();
 		   			while (false !== ($entry = readdir($handle))) 
 		   			{
 		       			if ($entry != "." && $entry != ".." && $entry != ".DS_Store") 
@@ -68,24 +70,31 @@
 				        	$fileUrl = $dir . "/" . $entry ;
 				        	$fileUrl = str_replace(' ', '%20', $fileUrl);
 				        	$extension = pathinfo($fileUrl);
-				        	if ($extension['extension'] == "zip")
-				        	{
-				        		echo '<p><a href=' . $fileUrl . ' onclick="incDLCount(\''.$credit.'\')"> Download release </a> </p>';
-				        	}
-				        	else if ($extension['extension'] == "mp3" || $extension['extension'] == "wav")
+				        	if ($extension['extension'] == "mp3" || $extension['extension'] == "wav")
 				        	{
 				        		$player = "<audio controls> <source src=" . $fileUrl . " type=audio/"  . $extension['extension'] . "></audio>";
-				           		echo "<tr> <td>" . $entry . "</td> <td>" . $player . "</td>" . "</td></tr>";
+				           		$str = "<tr> <td>" . $entry . "</td> <td>" . $player . "</td>" . "</tr>";
+				           		array_push($array, $str);
+				       		}
+				       		else if($extension['extension'] == "zip")
+				       		{
+				       			$zip = $fileUrl;
 				       		}
 				        }
-		    		}	
+		    		}
+		    		sort($array, SORT_NATURAL | SORT_FLAG_CASE);
+		    		foreach ($array as $key => $val)
+		    		{
+	   					echo $val;
+					}
 		    	closedir($handle);
-				}
+				}			        	
 			}
-			echo "</table></center>";
+			echo "</table>";
+			echo '<p><a id="downloadButton" href="' . $zip . '" onclick="incDLCount(\''.$credit.'\')"> Download release </a> </p>';
 		}
 		mysql_close($con);
 		?>
-
+	</center>
 	</body>
 </html>
