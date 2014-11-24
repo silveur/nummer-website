@@ -62,6 +62,7 @@
 				echo "<table id='songArray' border='1'";   		
 				if ($handle = opendir($dir)) 
 				{	
+					$array = array();
 		   			while (false !== ($entry = readdir($handle))) 
 		   			{
 		       			if ($entry != "." && $entry != ".." && $entry != ".DS_Store") 
@@ -72,14 +73,20 @@
 				        	if ($extension['extension'] == "mp3" || $extension['extension'] == "wav")
 				        	{
 				        		$player = "<audio controls> <source src=" . $fileUrl . " type=audio/"  . $extension['extension'] . "></audio>";
-				           		echo "<tr> <td>" . $entry . "</td> <td>" . $player . "</td>" . "</tr>";
+				           		$str = "<tr> <td>" . $entry . "</td> <td>" . $player . "</td>" . "</tr>";
+				           		array_push($array, $str);
 				       		}
 				       		else if($extension['extension'] == "zip")
 				       		{
 				       			$zip = $fileUrl;
 				       		}
 				        }
-		    		}	
+		    		}
+		    		sort($array, SORT_NATURAL | SORT_FLAG_CASE);
+		    		foreach ($array as $key => $val)
+		    		{
+	   					echo $val;
+					}
 		    	closedir($handle);
 				}			        	
 			}
