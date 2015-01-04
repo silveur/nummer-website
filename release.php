@@ -24,15 +24,29 @@
 			echo "</br>Record label: " . $row['RecordLabel'];
 			echo "</br>Catalogue number: " . $row['CatalogueNumber'];
 			echo "</br>Inventory: " . $row['Inventory'];
+			echo "</br>Price: £" . $row['Price'];
 			if($row['Inventory'] == 0) echo "</br>Sold out";
 			else
 			{
-				?>
-     				<form action="action_page.php">
-					First and last name:<br>
-					<input type="text" name="firstname" value="First Name">
+				echo "<form required action='/php/order.php' method='pre'>";
+				echo "<input type='hidden' name='cat' value=" . $releaseCAT . ">";
+				echo "<input type='hidden' name='price' value=" . $row['Price'] . ">";
+				?>		
+ 				First and last name:<br>
+					<input type="text" name="name" required>
 					<br>
-					
+					Email address:<br>
+					<input type="email" name="email" required>
+					<br>
+					Delivery address:<br>
+					<input type="text" name="address" required>
+					<br>
+					<input type="radio" name="zone" value="UK" checked>United Kingdom £3.5
+					<br>
+					<input type="radio" name="zone" value="EU">Europe £5
+					<br>
+					<input type="radio" name="zone" value="RW">Rest of the world £9
+					<br>
 					<input type="submit" value="Submit">
 					</form>
 				<?php 
