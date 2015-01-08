@@ -1,0 +1,7 @@
+
+Redirect /ToTheD /release.php?release=NUMM01
+Redirect /BeyondTime /release.php?release=PBR004
+Redirect /ReachEP /release.php?release=GOOD-05
+Redirect /NiteJams01 /release.php?release=NJ01
+
+DirectoryIndex /home.php
