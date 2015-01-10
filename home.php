@@ -8,51 +8,54 @@
 	</head>
 	<script src="js/scripts.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<body>
-		<div id="videoID" style="visibility:hidden"></div>
-		<?php
-			$dir = "releases/";
-			echo "<table align='center'>";
-			if ($handle = opendir($dir)) 
-			{	
-				$array = array();
-				echo "<tr style='width:100%'>";
-	   			while (false !== ($entry = readdir($handle))) 
-	   			{
-	   				if ($entry != "." && $entry != ".." && $entry != ".DS_Store" && $entry != "index.php") 
-				    {
-				    	$fileUrl = $dir . $entry . "/" ;
-				    	$artwork = $fileUrl . $entry . ".jpg ";
-				  		echo "<td>" . "<a href=" . "release.php?release=" . $entry . "><img src=" . $artwork . "></a>" ."</td>";
-					}
-	    		}		
-	    		echo "</tr>";
-	    	closedir($handle);
-			}        	
-			echo "</table>";
-		?>
-		
+	<body> 		
+		<div id="header"></div>
+
+		<div id="marginLeft"></div> 
+		<div id="content"></div> 
+		<div id="marginRight"></div> 
+		<div id="rightNav">
+
+			<?php
+				$dir = "releases/";
+				if ($handle = opendir($dir)) 
+				{	
+					$array = array();
+		   			while (false !== ($entry = readdir($handle))) 
+		   			{
+		   				if ($entry != "." && $entry != ".." && $entry != ".DS_Store" && $entry != "index.php") 
+					    {
+					    	$fileUrl = $dir . $entry . "/" ;
+					    	$artwork = $fileUrl . $entry . ".jpg ";
+					  		echo "<div id='labels'> <img src=" . $artwork . "></a></div>";
+						}
+		    		}		
+		    	closedir($handle);
+				}        	
+			?>
+
+		</div>
+
+		<div id="footer"></div>
 		<script>
-		$( document ).ready(function() 
-		{
-			getWindowBoundaries();
-			getRandomVideo();
-			printVideo();
-			startVideo();
-			var intervalIndex = setInterval(function()
-			{
-				if (document.getElementById("bgvid").readyState == 4)
-				{
-					showVideo(1);
-					clearInterval(intervalIndex);
-				}
-			}, 50);
-		});
-		$("body").click(function()
-		{
+		// $( document ).ready(function() 
+		// {
+		// 	getWindowBoundaries();
+		// 	// getRandomVideo();
+		// 	var intervalIndex = setInterval(function()
+		// 	{
+		// 		// if (document.getElementById("bgvid").readyState == 4)
+		// 		// {
+		// 		// 	// showVideo(1);
+		// 		// 	clearInterval(intervalIndex);
+		// 		// }
+		// 	}, 50);
+		// });
+		// $("body").click(function()
+		// {
 			
-		});
+		// });
 	
-		</script>
+		// </script>
 	</body>
 </html>
