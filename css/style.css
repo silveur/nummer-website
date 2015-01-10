@@ -1,15 +1,24 @@
 html, body
 {
 	margin: 0px;
-  height:100%;
+  font-family: 'Raspoutine Medium', Arial, Helvetica, sans-serif;
+	background-color:black;
+	background-repeat: no-repeat;
+	background-attachment:fixed;
+	background-position:center;
+	font-size: 11px;
+	line-height: 17px;
+	letter-spacing:0px;
+	height: 100%;
 }
 
-/*
+
 @font-face 
 {
 	font-family: 'Raspoutine Medium';
 	src: url(./font/PrestigeEliteStd.otf);
 }
+
 video#bgvid 
 {
 	position: fixed; right: 0; bottom: 0;
@@ -18,14 +27,19 @@ video#bgvid
 	background: no-repeat;
 	background-size: cover;
 }
-*/
+
+#videoID
+{
+	position: fixed;
+	/*height: 100%;*/
+	/*z-index: -1;*/
+}
 
 #header
 {
 	margin: 0px;
 	height: 14.2%;
 	width: 100%;
-	background-color: red;
 }
 
 #footer
@@ -33,7 +47,6 @@ video#bgvid
 	clear: both;
 	height: 14.2%;
 	width: 100%;
-	background-color: blue;
 }
 
 #marginLeft
@@ -41,7 +54,6 @@ video#bgvid
 	float: left;
 	width: 6.25%;
 	height: 71%;
-	background-color: green;
 }
 
 #marginRight
@@ -49,7 +61,6 @@ video#bgvid
 	float: right;
 	width: 6.25%;
 	height: 71%;
-	background-color: green;
 }
 
 #content
@@ -80,3 +91,36 @@ video#bgvid
 {
 	height: 33.3%;
 }
+
+#releaseVideo
+{
+	float: right;
+	background-color: black;
+	height: 75%;
+	width: 75%;
+}
+
+#releaseInfos
+{
+	width: 25%;
+	height: 75%;
+}
+
+#tracklist
+{
+	height: 25%;
+	width: 25%;
+}
+
+#releasePictures img
+{
+	height: 100%;
+}
+
+#releasePictures
+{
+	float: right;
+	height: 25%;
+	width: 75%;
+}
+
