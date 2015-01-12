@@ -1,7 +1,12 @@
 
-Redirect /ToTheD /release.php?release=NUMM01
-Redirect /BeyondTime /release.php?release=PBR004
-Redirect /ReachEP /release.php?release=GOOD-05
-Redirect /NiteJams01 /release.php?release=NJ01
+Redirect /ToTheD /?release=NUMM01
+Redirect /BeyondTime /?release=PBR004
+Redirect /ReachEP /?release=GOOD-05
+Redirect /NiteJams01 /?release=NJ01
 
 DirectoryIndex /home.php
+
+Options +FollowSymLinks
+RewriteEngine On
+
+RewriteRule ^([0-9-_]+)/([a-zA-Z0-9-_]+)/?$ index.php?var1=$1&var2=$2 [NC,L]

@@ -1,4 +1,10 @@
 
+function orderMenuSetVisible()
+{
+    document.getElementById("orderForm").style.visibility = "visible";
+    document.getElementById("orderButton").style.visibility  = "hidden";
+    document.getElementById("orderButton").innerHTML = "";
+}
 
 function debug(stringToPrint)
 {
