@@ -30,11 +30,12 @@
 			</div>
 			<div id="releaseInfos">
 			<?php
-			echo "</br>Release name: " . $row['ReleaseName'];
-			echo "</br>Record label: " . $row['RecordLabel'];
-			echo "</br>Catalogue number: " . $row['CatalogueNumber'];
-			echo "</br>Inventory: " . $row['Inventory'];
-			echo "</br>Price: £" . $row['Price'];
+			echo "<h2>" . $row['ReleaseName'] . "</h2>";
+			echo $row['RecordLabel'] . " - " . $row['CatalogueNumber'];
+			$inStock = $row['Inventory'];
+			if($inStock < 10)
+				echo "</br>In stock: " . "<span style='color: red'>" . $row['Inventory'] . "</span>";
+			echo "</br>£" . $row['Price'];
 			if($row['Inventory'] == 0) echo "</br>Sold out";
 			else
 			{
@@ -49,7 +50,7 @@
 					<input type="email" name="email" required>
 					<br>
 					Delivery address:<br>
-					<input type="text" name="address" required>
+					<textarea type="text" cols="30" rows="5" name="address" required></textarea>
 					<br>
 					<input type="radio" name="zone" value="UK" checked>United Kingdom £3.5
 					<br>
@@ -59,23 +60,30 @@
 					<br>
 					<input type="submit" value="Submit">
 					</form>
+
+					<br>
+					<p>For grouped orders please contact us by email: contact@nummermusic.com </p>
 				<?php 
 
 			}
-			mysql_close($con);
 		?>
 			</div>
-						<div id="releasePictures">
+				<div id="releasePictures">
 				<img src="releases/GOOD-05/GOOD-05.jpg">
 				<img src="releases/NUMM01/NUMM01.jpg">
 			</div>
 			<div id="tracklist">
-				s parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque 
+				
+				<?php
+				echo "Tracklist: <br>" . $row['Tracklist'];
+				mysql_close($con);
+				?>
+
 			</div>
 
 
 		</div> 
-		<!-- <div id="marginRight"></div>  -->
+		<div id="marginRight"></div> 
 		<div id="rightNav">
 
 			<?php
@@ -89,7 +97,7 @@
 					    {
 					    	$fileUrl = $dir . $entry . "/" ;
 					    	$artwork = $fileUrl . $entry . ".jpg ";
-					  		echo "<div id='labels'> <img src=" . $artwork . "></a></div>";
+					  		echo "<div id='labels'> <a href='#'><img src=" . $artwork . "></a></div>";
 						}
 		    		}		
 		    	closedir($handle);
