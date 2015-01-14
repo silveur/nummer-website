@@ -1,4 +1,10 @@
 
+function orderMenuSetVisible()
+{
+    document.getElementById("orderForm").style.display = "inline";
+    document.getElementById("orderButton").style.visibility  = "hidden";
+    document.getElementById("orderButton").innerHTML = "";
+}
 
 function debug(stringToPrint)
 {
@@ -24,7 +30,7 @@ function getWindowBoundaries()
 }
 function getRandomVideo()
 {
-	videoIndex = Math.floor(1 + Math.random()*3);
+	videoIndex = 3;//Math.floor(1 + Math.random()*3);
 	if (videoIndex == 1) videoOffset = 2 + (Math.floor(Math.random() * 60));
 	else if (videoIndex == 2 ) videoOffset = 2 + (Math.floor(Math.random() * 60));
 	else if (videoIndex == 3 ) videoOffset = 2 + (Math.floor(Math.random() * 45));
@@ -62,14 +68,8 @@ function toggleArrowsVisibility()
 }
 function toggleVisibility()
 {
-	var oElm = document.getElementById("textID"); var strValue;
-	var videoVisible = document.getElementById("videoID").style.visibility;
-	if(document.defaultView && document.defaultView.getComputedStyle && videoVisible != "hidden")
-	{
-		strValue = document.defaultView.getComputedStyle(oElm, null).getPropertyValue("display");
-		if (oElm.style.visibility == "hidden") { oElm.style.visibility = "visible";}
-		else { oElm.style.visibility = "hidden";}				
-	}
+	var oElm = document.getElementById("rightNav"); 
+	oElm.style.display = "inline";
 }
 function showVideo(state)
 {

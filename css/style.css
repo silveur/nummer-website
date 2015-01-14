@@ -1,0 +1,155 @@
+html, body
+{
+	margin: 0px;
+  	font-family: 'Raspoutine Medium', Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 17px;
+	letter-spacing:0px;
+	height: 100%;
+	min-height: 500px;
+}
+
+a:link{text-decoration:none;color:white;font-size: 11px;font-weight:normal;}
+a:visited {text-decoration:none;color:white;background-color:black;}
+a:active {text-decoration:none;color:white;}
+
+@font-face 
+{
+	font-family: 'Raspoutine Medium';
+	src: url(./font/PrestigeEliteStd.otf);
+}
+
+video#bgvid 
+{
+	position: fixed;
+	right: 0; 
+	bottom: 0;
+	min-width: 100%; 
+	min-height: 100%;
+	width: auto; 
+	height: auto; 
+	z-index: -100;
+	background: no-repeat;
+	background-size: cover;
+}
+
+#header
+{
+	margin: 0px;
+	height: 14.2%;
+	width: 100%;
+}
+
+#footer
+{
+	clear: both;
+	height: 14.2%;
+	width: 100%;
+}
+
+#marginLeft
+{
+	float: left;
+	width: 6.25%;
+	height: 71%;
+}
+
+#marginRight
+{
+	float: right;
+	width: 6.25%;
+	height: 71%;
+}
+
+#content
+{
+	float: left;
+	height: 71%;
+	width: 68.75%;
+	color: white;
+}
+
+#rightNav
+{
+	display: none;
+	float: right;
+	width: 18.75%;
+	height: 71%;
+}
+
+#rightNav img
+{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20%;
+	height: 100%;
+}
+
+#labels
+{
+	height: 20%;
+}
+#labelsText
+{
+	text-align: center;
+	color: white;
+}
+
+#releaseVideo
+{
+	float: right;
+	height: 75%;
+	width: 75%;
+	margin: 0px;
+}
+
+#releaseInfos
+{
+	width: 20%;
+	height: 75%;
+	margin: 0px;
+}
+
+#releasePictures img
+{
+	margin-top: 2%;
+	margin-right: 2%;
+	height: 60%;
+}
+
+#releasePictures
+{
+	float: right;
+	height: 25%;
+	width: 75%;
+}
+
+#orderForm
+{
+	display: none;
+}
+
+#orderButton 
+{
+	background-color:transparent;
+	-moz-border-radius:18px;
+	-webkit-border-radius:18px;
+	border-radius:28px;
+	border:1px solid #ffffff;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:12px;
+	padding:2px 11px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+	margin-top: 5px;
+}
+#orderButton:hover
+{
+	background-color:white;
+	color: black;
+}
+
+
