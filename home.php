@@ -10,8 +10,30 @@
 	<script src="js/scripts.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="js/lightbox.min.js"></script>
+	<script>function loadContent(release)
+	{
+		var xmlhttp;
+		if (window.XMLHttpRequest)
+		{
+			xmlhttp=new XMLHttpRequest();
+		}
+		else
+		{
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.onreadystatechange=function()
+		{
+			if (xmlhttp.readyState==4 && xmlhttp.status==200)
+			{
+				document.getElementById("content").innerHTML=xmlhttp.responseText;
+			}
+		}
+		xmlhttp.open("GET","/php/releaseContent.php?release="+release,true);
+		xmlhttp.send();
+	}
+</script>
 	<body>
-	<!-- <div id="videoID"></div> -->
+	<div id="videoID"></div>
 		<?php
 			$releaseCAT = htmlspecialchars($_GET["release"]);
 
@@ -26,86 +48,10 @@
 		<div id="marginLeft"></div> 
 		<div id="content">
 
-			<div id="releaseVideo">
-				<?php echo $row['VideoLink'];?>
-			</div>
-			<div id="releaseInfos">
-				<?php
-				if ($releaseCAT != "")
-				{
-					echo "<h2>" . $row['ReleaseName'] . "</h2>";
-					echo $row['RecordLabel'] . " - " . $row['CatalogueNumber'];
-					echo "<br>£" . $row['Price'];
-					$inStock = $row['Inventory'];
-					if($inStock < 10 && $inStock != 0) echo "</br>In stock: " . "<span style='color: red'> " . $row['Inventory'] . "</span>";
-					
-					if($row['Inventory'] == 0) echo "</br><span style='color: red'>Sold out</span>";
-					else
-					{
-						echo "<br><a href='#' id='orderButton' onclick='orderMenuSetVisible()'>Order</a>";
-
-						echo "<div id='orderForm'>";
-							echo "<form required action='/php/order.php' method='pre'>";
-							echo "<input type='hidden' name='cat' value=" . $releaseCAT . ">";
-							echo "<input type='hidden' name='price' value=" . $row['Price'] . ">";
-							?>		
-			 				First and last name:<br>
-								<input type="text" name="name" required>
-								<br>
-								Email address:<br>
-								<input type="email" name="email" required>
-								<br>
-								Delivery address:<br>
-								<textarea type="text" cols="30" rows="5" name="address" required></textarea>
-								<br>
-								<input type="radio" name="zone" value="UK" checked>United Kingdom £3.5
-								<br>
-								<input type="radio" name="zone" value="EU">Europe £5
-								<br>
-								<input type="radio" name="zone" value="RW">Rest of the world £9
-								<br><br>
-								<input type="submit" value="Submit">
-								</form>
-							<?php 
-						echo "</div>";		
-						echo "<p>For grouped orders please contact us by email: <span><a href='mailto:contact@nummermusic.com'>contact@nummermusic.com </a></span> </p>";
-					}
-				}
-				?>
-			</div>
-				<div id="releasePictures">
-				<?php
-				$dir = "releases/" . $releaseCAT . "/Artworks/";
-				if ($handle = opendir($dir)) 
-				{	
-		   			while (false !== ($entry = readdir($handle))) 
-		   			{
-		   				if ($entry != "." && $entry != ".." && $entry != ".DS_Store") 
-					    {
-					    	$fileUrl = $dir . $entry ;
-					  		if ($entry != ($releaseCAT. ".jpg"))
-					  		echo "<a href='" . $fileUrl . "' data-lightbox='releaseArtworks' data-title='Artworks'>" . "<img src=" . $fileUrl . ">" . "</a>";
-						}
-		    		}		
-		    	closedir($handle);
-				}        	
-			?>
-			</div>
-
-			<div id="tracklist">
-				<?php
-				if ($releaseCAT != "")
-				{
-					echo "Tracklist: <br>" . $row['Tracklist'];
-					mysql_close($con);
-				}
-				?>
-			</div>
-
+			
 		</div> 
 		<div id="marginRight"></div> 
 		<div id="rightNav">
-
 			<?php
 				$dir = "releases/";
 				if ($handle = opendir($dir)) 
@@ -117,7 +63,7 @@
 					    {
 					    	$fileUrl = $dir . $entry . "/Artworks/" ;
 					    	$artwork = $fileUrl . $entry . ".jpg ";
-					  		echo "<div id='labels'> <a href='?release=" . $entry . "'><img src=" . $artwork . "></div>";
+					  		echo '<div id="labels" onclick="loadContent(\''.$entry.'\')"><a href=#><img src=' . $artwork . '></div>';
 					  		echo "<p id='labelsText' class='link'>" . $entry . "</p></a>";
 						}
 		    		}		
@@ -145,7 +91,7 @@
 		});
 		$("body").click(function()
 		{
-			
+			toggleVisibility();
 		});
 		</script>
 		<?php
