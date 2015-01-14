@@ -71,6 +71,7 @@ video#bgvid
 
 #rightNav
 {
+	display: none;
 	float: right;
 	width: 18.75%;
 	height: 71%;
