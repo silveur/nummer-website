@@ -11,6 +11,8 @@
 
 			$pwd = file_get_contents('../../pwd', true);
 			$usr = file_get_contents('../../usr', true);
+			$pwd=preg_replace('/\s+/', '', $pwd);
+			$usr=preg_replace('/\s+/', '', $usr);
 			$con=mysqli_connect("localhost",$usr, $pwd, "Sales");
 			if (mysqli_connect_errno()) echo "Failed to connect to MySQL: " . mysqli_connect_error();
 
@@ -19,7 +21,7 @@
 			$paypalURL = "https://www.paypal.com/cgi-bin/webscr?&cmd=_xclick&currency_code=GBP&business=contact@nummermusic.com&amount=" . $price . "&item_name=" . $releaseCAT;
 			mysql_close($con);
 
-			$con=mysqli_connect("localhost","root","root", "Releases");
+			$con=mysqli_connect("localhost",$usr,$pwd, "Releases");
 			if (mysqli_connect_errno()) echo "Failed to connect to MySQL: " . mysqli_connect_error();
 
 			$result = mysqli_query($con,"SELECT * FROM Releases WHERE CatalogueNumber = '$releaseCAT'");
