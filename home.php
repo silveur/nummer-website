@@ -62,7 +62,7 @@
 		   				if ($entry != "." && $entry != ".." && $entry != ".DS_Store" && $entry != "index.php") 
 					    {
 					    	$fileUrl = $dir . $entry . "/Artworks/" ;
-					    	$artwork = $fileUrl . $entry . ".jpg ";
+					    	$artwork = $fileUrl . $entry . ".png ";
 					  		echo '<div id="labels" onclick="loadContent(\''.$entry.'\')"><a href=#><img src=' . $artwork . '></div>';
 					  		echo "<p id='labelsText' class='link'>" . $entry . "</p></a>";
 						}
