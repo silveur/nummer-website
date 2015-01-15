@@ -8,7 +8,10 @@
 			if ($zone == 'UK') $price += 3.5;
 			else if ($zone == 'EU') $price += 5;
 			else if ($zone == 'RW') $price += 9;
-			$con=mysqli_connect("localhost","root","root", "Sales");
+
+			$pwd = file_get_contents('../../pwd', true);
+			$usr = file_get_contents('../../usr', true);
+			$con=mysqli_connect("localhost",$usr, $pwd, "Sales");
 			if (mysqli_connect_errno()) echo "Failed to connect to MySQL: " . mysqli_connect_error();
 
 			mysqli_query($con, "INSERT INTO Orders (Address, Amount, CatalogueNumber, Email, Name, Status, Zone)
