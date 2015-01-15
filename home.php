@@ -36,8 +36,9 @@
 	<div id="videoID"></div>
 		<?php
 			$releaseCAT = htmlspecialchars($_GET["release"]);
-
-			$con=mysqli_connect("localhost","root","root", "Releases");
+			$pwd = file_get_contents('../pwd', true);
+			$usr = file_get_contents('../usr', true);
+			$con=mysqli_connect("localhost",$usr, $pwd, "Releases");
 			if (mysqli_connect_errno()) echo "Failed to connect to MySQL: " . mysqli_connect_error();
 
 			$result = mysqli_query($con,"SELECT * FROM Releases WHERE CatalogueNumber = '$releaseCAT'");

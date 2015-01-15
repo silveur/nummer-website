@@ -1,8 +1,9 @@
 <?php
 
 		$Credit = htmlspecialchars($_GET["credit"]);
-
-		$con=mysqli_connect("localhost","root","root", "AudioDownloads");
+		$pwd = file_get_contents('../../pwd', true);
+		$usr = file_get_contents('../../usr', true);
+		$con=mysqli_connect("localhost",$usr, $pwd, "AudioDownloads");
 		if (mysqli_connect_errno()) echo "Failed to connect to MySQL: " . mysqli_connect_error();
 
 		$result = mysqli_query($con,"SELECT * FROM Voucher WHERE Credit='$Credit'");
