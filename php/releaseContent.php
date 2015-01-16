@@ -60,16 +60,17 @@
 			</div>
 				<div id="releasePictures">
 				<?php
-				$dir = "../releases/" . $releaseCAT . "/Artworks/";
-				if ($handle = opendir($dir)) 
+				$phpdir = "../releases/" . $releaseCAT . "/Artworks/";
+				$htmldir = "/releases/" . $releaseCAT . "/Artworks/";
+				if ($handle = opendir($phpdir)) 
 				{	
 		   			while (false !== ($entry = readdir($handle))) 
 		   			{
 		   				if ($entry != "." && $entry != ".." && $entry != ".DS_Store") 
 					    {
-					    	$fileUrl = $dir . $entry ;
-					  		if ($entry != ($releaseCAT. ".jpg"))
-					  		echo "<a href='" . $fileUrl . "' data-lightbox='releaseArtworks' data-title='Artworks'>" . "<img src=" . $fileUrl . ">" . "</a>";
+					    	$fileUrl = $htmldir . $entry ;
+					  		if ($entry != ($releaseCAT. ".png"))
+					  			echo "<a href='" . $fileUrl . "' data-lightbox='releaseArtworks' data-title='Artworks'>" . "<img src=" . $fileUrl . ">" . "</a>";
 						}
 		    		}		
 		    	closedir($handle);
