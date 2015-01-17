@@ -88,10 +88,12 @@ video#bgvid
 
 #labels
 {
+	cursor:pointer;
 	height: 20%;
 }
 #labelsText
 {
+	cursor:pointer;
 	text-align: center;
 	color: white;
 }

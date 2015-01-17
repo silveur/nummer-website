@@ -12,6 +12,7 @@
 	<script src="js/lightbox.min.js"></script>
 	<script>function loadContent(release)
 	{
+		window.history.replaceState("object or string", "Title", release);
 		var xmlhttp;
 		if (window.XMLHttpRequest)
 		{
@@ -40,7 +41,7 @@
 			$usr = file_get_contents('../usr', true);
 			$usr=preg_replace('/\s+/', '', $usr);
 			$pwd=preg_replace('/\s+/', '', $pwd);
-			$con=mysqli_connect("localhost",$usr, $pwd, "Releases");
+			$con=mysqli_connect("localhost",$usr, $pwd, "NummerWebsite");
 			if (mysqli_connect_errno()) echo "Failed to connect to MySQL: " . mysqli_connect_error();
 
 			$result = mysqli_query($con,"SELECT * FROM Releases WHERE CatalogueNumber = '$releaseCAT'");
@@ -66,8 +67,8 @@
 					    {
 					    	$fileUrl = $dir . $entry . "/Artworks/" ;
 					    	$artwork = $fileUrl . $entry . ".png ";
-					  		echo '<div id="labels" onclick="loadContent(\''.$entry.'\')"><a href=#><img src=' . $artwork . '></div>';
-					  		echo "<p id='labelsText' class='link'>" . $entry . "</p></a>";
+					  		echo '<div id="labels" onclick="loadContent(\''.$entry.'\')"><img src=' . $artwork . '></div>';
+					  		echo "<p id='labelsText' class='link'>" . $entry . "</p>";
 						}
 		    		}		
 		    	closedir($handle);
@@ -98,7 +99,19 @@
 		});
 		</script>
 		<?php
+			if ($releaseCAT != "")
+			{
+				echo '<script type="text/javascript">' , 'loadContent(\''.$releaseCAT.'\');', '</script>';
+				echo '<script type="text/javascript">' , 'toggleVisibility();</script>';
+			}
 			mysql_close($con);
 		?>
+		<script type="text/javascript">
+		if ($('html').is('.ie6, .ie7, .ie8')) 
+		{
+   			document.body.innerHTML = "";
+			document.write('<H1><center>Internet Explorer not supported sorry</H1>');
+		}
+		</script>
 	</body>
 </html>

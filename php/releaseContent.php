@@ -4,7 +4,7 @@
 			$usr = file_get_contents('../../usr', true);
 			$pwd=preg_replace('/\s+/', '', $pwd);
 			$usr=preg_replace('/\s+/', '', $usr);		
-			$con=mysqli_connect("localhost",$usr, $pwd, "Releases");
+			$con=mysqli_connect("localhost",$usr, $pwd, "NummerWebsite");
 			if (mysqli_connect_errno()) echo "Failed to connect to MySQL: " . mysqli_connect_error();
 
 			$result = mysqli_query($con,"SELECT * FROM Releases WHERE CatalogueNumber = '$releaseCAT'");

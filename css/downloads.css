@@ -1,0 +1,21 @@
+html, body
+{
+	background-color: black;
+	color: white;
+}
+
+a:link{text-decoration:none;color:white;font-weight:normal;}
+a:visited {text-decoration:none;color:white;background-color:black;}
+a:active {text-decoration:none;color:white;}
+
+
+#codeText
+{
+	margin-left: 50%;
+	margin-top: 10%;
+	display:inline-block;margin-right:10px;
+} 
+#codeForm
+{
+	display:inline-block;
+}

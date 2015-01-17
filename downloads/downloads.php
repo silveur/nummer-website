@@ -2,7 +2,8 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" type="text/css" href="../style.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="/css/downloads.css">
 		<link rel="icon" type="image/jpg" href="/images/favicon14px.jpg">
 		<title>Downloads</title>
 		<script>
@@ -40,7 +41,7 @@
 
 		$Voucher = htmlspecialchars($_GET["code"]);
 
-		$con=mysqli_connect("localhost","root","root", "AudioDownloads");
+		$con=mysqli_connect("localhost","root","root", "NummerWebsite");
 		if (mysqli_connect_errno()) echo "Failed to connect to MySQL: " . mysqli_connect_error();
 
 		$result = mysqli_query($con,"SELECT * FROM Voucher
@@ -57,17 +58,18 @@
 			$zip;
 			if ($credit != "ALL")
 			{
-				$dir = "../audio/" . $credit;
-				echo "<img id='flyer' style='height:auto; width:auto; max-width:300px; max-height:400px;' src=" . $dir . "/artwork.jpg" . ">";
+				$phpdir = "../releases/" . $credit . "/audio";
+				$htmldir = "/releases/" . $credit;
+				echo "<img id='flyer' style='height:auto; width:auto; max-width:300px; max-height:400px;' src=" . $htmldir . "/Artworks/" .$credit . ".png>";
 				echo "<table id='songArray' border='1'";   		
-				if ($handle = opendir($dir)) 
+				if ($handle = opendir($phpdir)) 
 				{	
 					$array = array();
 		   			while (false !== ($entry = readdir($handle))) 
 		   			{
 		       			if ($entry != "." && $entry != ".." && $entry != ".DS_Store") 
 				        {
-				        	$fileUrl = $dir . "/" . $entry ;
+				        	$fileUrl = $htmldir . "/Audio/" . $entry ;
 				        	$fileUrl = str_replace(' ', '%20', $fileUrl);
 				        	$extension = pathinfo($fileUrl);
 				        	if ($extension['extension'] == "mp3" || $extension['extension'] == "wav")
@@ -88,7 +90,7 @@
 	   					echo $val;
 					}
 		    	closedir($handle);
-				}			        	
+				}		        	
 			}
 			echo "</table>";
 			echo '<p><a id="downloadButton" href="' . $zip . '" onclick="incDLCount(\''.$credit.'\')"> Download release </a> </p>';
