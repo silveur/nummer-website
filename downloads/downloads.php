@@ -41,7 +41,11 @@
 
 		$Voucher = htmlspecialchars($_GET["code"]);
 
-		$con=mysqli_connect("localhost","root","root", "NummerWebsite");
+		$pwd = file_get_contents('../../pwd', true);
+		$usr = file_get_contents('../../usr', true);
+		$usr=preg_replace('/\s+/', '', $usr);
+		$pwd=preg_replace('/\s+/', '', $pwd);
+		$con=mysqli_connect("localhost",$usr, $pwd, "NummerWebsite");
 		if (mysqli_connect_errno()) echo "Failed to connect to MySQL: " . mysqli_connect_error();
 
 		$result = mysqli_query($con,"SELECT * FROM Voucher
