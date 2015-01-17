@@ -16,7 +16,7 @@ a:active {text-decoration:none;color:white;}
 @font-face 
 {
 	font-family: 'Raspoutine Medium';
-	src: url(./font/PrestigeEliteStd.otf);
+	src: url(/font/PrestigeEliteStd.otf);
 }
 
 video#bgvid 

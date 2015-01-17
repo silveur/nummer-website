@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="/css/style.css">
 		<link rel="stylesheet" type="text/css" href="/css/downloads.css">
 		<link rel="icon" type="image/jpg" href="/images/favicon14px.jpg">
 		<title>Downloads</title>
@@ -62,7 +62,7 @@
 			$zip;
 			if ($credit != "ALL")
 			{
-				$phpdir = "../releases/" . $credit . "/audio";
+				$phpdir = "../releases/" . $credit . "/Audio";
 				$htmldir = "/releases/" . $credit;
 				echo "<img id='flyer' style='height:auto; width:auto; max-width:300px; max-height:400px;' src=" . $htmldir . "/Artworks/" .$credit . ".png>";
 				echo "<table id='songArray' border='1'";   		
