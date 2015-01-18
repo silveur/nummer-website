@@ -7,9 +7,9 @@
 		<link rel="icon" type="image/jpg" href="img/favicon14px.jpg">
 		<title>NUMMER MUSIC</title>
 	</head>
-	<script src="js/scripts.js"></script>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script src="js/lightbox.min.js"></script>
+	<script src="/js/scripts.js"></script>
+	<script src="/js/jquery-1.11.0.min.js"></script>
+	<script src="/js/lightbox.min.js"></script>
 	<script>function loadContent(release)
 	{
 		window.history.replaceState("object or string", "Title", release);
@@ -80,18 +80,25 @@
 		<script>
 		$( document ).ready(function() 
 		{
-			getWindowBoundaries();
-			getRandomVideo();
-			printVideo();
-			startVideo();
-			var intervalIndex = setInterval(function()
+			if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) )
 			{
-				if (document.getElementById("bgvid").readyState == 4)
+ 				toggleVisibility();
+			}
+			else
+			{
+				getWindowBoundaries();
+				getRandomVideo();
+				printVideo();
+				startVideo();
+				var intervalIndex = setInterval(function()
 				{
-					showVideo(1);
-					clearInterval(intervalIndex);
-				}
-			}, 50);
+					if (document.getElementById("bgvid").readyState == 4)
+					{
+						showVideo(1);
+						clearInterval(intervalIndex);
+					}
+				}, 50);
+			}
 		});
 		$("body").click(function()
 		{
