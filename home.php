@@ -83,7 +83,7 @@
 			if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) )
 			{
  				toggleVisibility();
- 				document.body.backgroundColor="black";
+ 				document.body.style.backgroundColor="black";
 			}
 			else
 			{
