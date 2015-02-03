@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" type="text/css" href="../style.css">
+		<link rel="stylesheet" type="text/css" href="/css/style.css">
 		<link rel="icon" type="image/jpg" href="images/favicon14px.jpg">
 		<title>NUMMER MUSIC</title>
 	</head>
@@ -48,7 +48,7 @@
 		
 		<?php
 
-		$con=mysqli_connect("localhost",$usr, $pwd, "AudioDownloads");
+		$con=mysqli_connect("localhost",$usr, $pwd, "NummerWebsite");
 		if (mysqli_connect_errno()) echo "Failed to connect to MySQL: " . mysqli_connect_error();
 
 		$result = mysqli_query($con,"SELECT * FROM Voucher");
