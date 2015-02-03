@@ -83,7 +83,11 @@
 			if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) )
 			{
  				toggleVisibility();
+<<<<<<< HEAD
  				document.body.style.backgroundColor = "black";
+=======
+ 				document.body.style.backgroundColor="black";
+>>>>>>> c005a7d156caae0749336f9b2e7009d4cca47b41
 			}
 			else
 			{
