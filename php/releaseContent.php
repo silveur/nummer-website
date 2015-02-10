@@ -28,7 +28,8 @@ echo "<br>£" . $row['Price'];
 					if($row['Inventory'] == 0) echo "</br><span style='color: red'>Sold out</span>";
 					else 
 					{
-						echo "<br><a href='#' id='orderButton' onclick='orderMenuSetVisible()'>Order</a>";
+						if ($releaseCAT=="NUMM01")echo "<br><a href='#' id='orderButton' onclick='orderMenuSetVisible()'>Pre-order</a>";
+						else echo "<br><a href='#' id='orderButton' onclick='orderMenuSetVisible()'>Order</a>";
 					}
 
 					echo "<div id='orderForm'>";
