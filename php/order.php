@@ -28,5 +28,14 @@
 			mysqli_query($con,"UPDATE Releases SET Inventory='$newInventory' WHERE CatalogueNumber='$releaseCAT'");
 			mysql_close($con);
 
+			$to      = $email;
+			$subject = 'Thanks for your order' . ' - ' . $releaseCAT;
+			$message = "Thanks for your order, we will give you a heads up when it's on its way :)" . "\r\n" . "Cheers" . "\r\n" . "Nummer";
+			$headers = 'From: Nummer Music <contact@nummermusic.com>' . "\r\n" .
+			    'Reply-To: contact@nummermusic.com' . "\r\n" .
+			    'X-Mailer: PHP/' . phpversion();
+
+			mail($to, $subject, $message, $headers);
+
 			header( "Location:" . $paypalURL ) ;
 ?>
