@@ -19,7 +19,9 @@
 				{
 					echo "<h2>" . $row['ReleaseName'] . "</h2>";
 					echo $row['RecordLabel'] . " - " . $row['CatalogueNumber'];
-					echo "<br>£" . $row['Price'];
+					if ($releaseCAT == "NUMM01")
+						echo '</br>Expected shipping 1st March';					
+echo "<br>£" . $row['Price'];
 					$inStock = $row['Inventory'];
 					if($inStock < 10 && $inStock != 0) echo "</br>In stock: " . "<span style='color: red'> " . $row['Inventory'] . "</span>";
 					
@@ -43,9 +45,9 @@
 						Delivery address:<br>
 						<textarea type="text" cols="20" rows="5" name="address" required></textarea>
 						<br>
-						<input type="radio" name="zone" value="UK" checked>United Kingdom £3.5
+						<input type="radio" name="zone" value="UK" checked>United Kingdom £3.75
 						<br>
-						<input type="radio" name="zone" value="EU">Europe £5
+						<input type="radio" name="zone" value="EU">Europe £5.50
 						<br>
 						<input type="radio" name="zone" value="RW">Rest of the world £9
 						<br><br>

@@ -5,8 +5,8 @@
 			$email = htmlspecialchars($_GET["email"]);
 			$zone = htmlspecialchars($_GET["zone"]);
 			$price = htmlspecialchars($_GET["price"]);
-			if ($zone == 'UK') $price += 3.5;
-			else if ($zone == 'EU') $price += 5;
+			if ($zone == 'UK') $price += 3.75;
+			else if ($zone == 'EU') $price += 5.50;
 			else if ($zone == 'RW') $price += 9;
 
 			$pwd = file_get_contents('../../pwd', true);

@@ -63,7 +63,7 @@
 		while($row = mysqli_fetch_array($result))
 		{
 		  echo "<tr>";
-		  echo "<td>" . $row['Credit'] . "</td>";
+		  echo "<td>" . $row['Code'] . "</td>";
 		  echo "<td>" . $row['DownloadCounter'] . "</td>";
 		  echo "</tr>";
 		}
