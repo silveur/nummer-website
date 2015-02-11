@@ -10,6 +10,8 @@
 	<body>
 		<?php
 			$releaseCAT = htmlspecialchars($_GET["cat"]);
+			$paypalPWD = file_get_contents('../../paypalPWD', true);
+			$paypalPWD=preg_replace('/\s+/', '', $paypalPWD);
 			$pwd = file_get_contents('../../pwd', true);
 			$usr = file_get_contents('../../usr', true);
 			$pwd=preg_replace('/\s+/', '', $pwd);
@@ -21,7 +23,7 @@
 			$token = htmlspecialchars($_GET["token"]);
 			$PayerID = htmlspecialchars($_GET["PayerID"]);
 
-			$paypalResponse = file_get_contents('https://api-3t.paypal.com/nvp?TOKEN=' . $token . '&VERSION=106.0&SIGNATURE=AXYVGbf-S.vpK0cdOArIz.pHtQkyAL2coxQtEK20Oi-L1p4KnSsIwULe&METHOD=GetExpressCheckoutDetails&PWD=HKTYCLKWULYA6LP3&USER=contact_api1.nummermusic.com');
+			$paypalResponse = file_get_contents('https://api-3t.paypal.com/nvp?TOKEN=' . $token . '&VERSION=106.0&SIGNATURE=AXYVGbf-S.vpK0cdOArIz.pHtQkyAL2coxQtEK20Oi-L1p4KnSsIwULe&METHOD=GetExpressCheckoutDetails&PWD=' . $paypalPWD . '&USER=contact_api1.nummermusic.com');
 			parse_str($paypalResponse);
 
 			$name = $FIRSTNAME  . ' ' . $LASTNAME;

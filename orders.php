@@ -37,6 +37,7 @@
 		  echo "<td>" . $row['CatalogueNumber'] . "</td>";
 		  echo "<td>" . $row['Status'] . "</td>";
 		  echo "<td>" . $row['Amount'] . "</td>";
+		  echo "<td style='width:30%'><div contenteditable>" . 'Note' . "</div></td>";
 		  echo "</tr>";
 		}
 		mysql_close($con);
