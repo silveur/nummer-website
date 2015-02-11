@@ -28,17 +28,26 @@ echo "<br>£" . $row['Price'];
 					if($row['Inventory'] == 0) echo "</br><span style='color: red'>Sold out</span>";
 					else 
 					{
-						// echo '<br><a href="#" id="orderButton" " >Pre-order</a>';
-						$onClick = 'onClick="paypalOrder(\'' . $releaseCAT . '\', \'' .$row['Price'] . '\')"';
-						// echo $onClick;
+						$onClick = 'onClick="paypalOrder(\'' . $releaseCAT . '\', \'' .$row['Price'] . '\')"';		
+						if ($releaseCAT == 'NUMM01') echo '<br><a href="#" id="orderButton" onclick="orderMenuSetVisible()"' . $onClick . ' >Pre-order</a>';
+						else echo '<br><a href="#" id="orderButton" onclick="orderMenuSetVisible()"' . $onClick . ' >Order</a>';
 						
-						echo '<br><a href="#" id="orderButton"' . $onClick . ' >Pre-order</a>';
-
-						?>
-							<!-- <br><a href="#" id="orderButton" >Pre-order</a> -->
-						<?php
 					}
-
+					echo "<div id='orderForm'>";
+					echo "<form required action='/php/paypalToken.php' method='pre'>";
+					echo "<input type='hidden' name='cat' value=" . $releaseCAT . ">";
+					echo "<input type='hidden' name='price' value=" . $row['Price'] . ">";
+					?>		
+						<input type="radio" name="zone" value="UK" checked>United Kingdom £3.75
+						<br>
+						<input type="radio" name="zone" value="EU">Europe £5.50
+						<br>
+						<input type="radio" name="zone" value="RW">Rest of the world £9
+						<br><br>
+						<input type="submit" value="Submit">
+						</form>
+					<?php 
+					echo "</div>";
 					echo "<p>For grouped orders please contact us by email: <span><a href='mailto:contact@nummermusic.com'>contact@nummermusic.com </a></span> </p>";
 					echo "Tracklist: <br>" . $row['Tracklist'];
 				}

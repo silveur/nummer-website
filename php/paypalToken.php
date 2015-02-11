@@ -1,7 +1,8 @@
 <?php
 			$releaseCAT = htmlspecialchars($_GET["cat"]);
 			$price = htmlspecialchars($_GET["price"]);
-
+			$zone = htmlspecialchars($_GET["zone"]);
+			
 			if ($zone == 'UK') $price += 3.75;
 			else if ($zone == 'EU') $price += 5.50;
 			else if ($zone == 'RW') $price += 9;
@@ -12,5 +13,5 @@
 			parse_str($paypalResponse);
 
 			$paypalURL = "https://www.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=" . $TOKEN;
-			echo $paypalURL;
+			header( "Location:" . $paypalURL ) ;
 ?>
