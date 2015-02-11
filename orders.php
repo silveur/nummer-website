@@ -12,8 +12,8 @@
 		<center>
 		<?php
 
-		$pwd = file_get_contents('../../pwd', true);
-		$usr = file_get_contents('../../usr', true);
+		$pwd = file_get_contents('../pwd', true);
+		$usr = file_get_contents('../usr', true);
 		$usr=preg_replace('/\s+/', '', $usr);
 		$pwd=preg_replace('/\s+/', '', $pwd);
 		
