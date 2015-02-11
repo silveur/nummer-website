@@ -32,6 +32,30 @@
 		xmlhttp.open("GET","/php/releaseContent.php?release="+release,true);
 		xmlhttp.send();
 	}
+	function paypalOrder(release, price)
+	{
+		window.history.replaceState("object or string", "Title", release);
+		var xmlhttp;
+		if (window.XMLHttpRequest)
+		{
+			xmlhttp=new XMLHttpRequest();
+		}
+		else
+		{
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.onreadystatechange=function()
+		{
+			if (xmlhttp.readyState==4 && xmlhttp.status==200)
+			{
+				// window.alert(xmlhttp.responseText);
+				// window.open(xmlhttp.responseText);
+				window.location.replace(xmlhttp.responseText);
+			}
+		}
+		xmlhttp.open("GET","/php/paypalToken.php?cat="+release+"&price="+price,true);
+		xmlhttp.send();
+	}
 </script>
 	<body>
 	<div id="videoID"></div>
