@@ -29,6 +29,12 @@
 
 			mysqli_query($con, "INSERT INTO Orders (Address, Amount, CatalogueNumber, Email, Name, Status, Zone)
 								VALUES ('$address', '$AMT', '$releaseCAT', '$EMAIL', '$name', '$ACK', '$SHIPTOCOUNTRYCODE')");
+
+			$result = mysqli_query($con,"SELECT * FROM Releases WHERE CatalogueNumber = '$releaseCAT'");
+			$row = mysqli_fetch_array($result);
+			$newInventory = $row['Inventory'] - 1;
+			mysqli_query($con,"UPDATE Releases SET Inventory='$newInventory' WHERE CatalogueNumber='$releaseCAT'");
+			
 			mysql_close($con);
 
 			$to      = $EMAIL;
