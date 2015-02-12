@@ -21,7 +21,7 @@
 					echo $row['RecordLabel'] . " - " . $row['CatalogueNumber'];
 					if ($releaseCAT == "NUMM01")
 						echo '</br>Expected shipping 1st March';					
-echo "<br>£" . $row['Price'];
+					echo "<br>£" . $row['Price'] . ' + shipping';
 					$inStock = $row['Inventory'];
 					if($inStock < 10 && $inStock != 0) echo "</br>In stock: " . "<span style='color: red'> " . $row['Inventory'] . "</span>";
 					
@@ -34,16 +34,16 @@ echo "<br>£" . $row['Price'];
 						
 					}
 					echo "<div id='orderForm'>";
-					echo "<form required action='/php/paypalToken.php' method='pre'>";
+					echo "<form required action='/php/paypalToken.php' method='pre' id='paypalForm'>";
 					echo "<input type='hidden' name='cat' value=" . $releaseCAT . ">";
 					echo "<input type='hidden' name='price' value=" . $row['Price'] . ">";
-					?>		
-						<input type="radio" name="zone" value="UK" checked>United Kingdom £3.75
-						<br>
-						<input type="radio" name="zone" value="EU">Europe £5.50
-						<br>
-						<input type="radio" name="zone" value="RW">Rest of the world £9
-						<br><br>
+					?>
+					<select required id="paypalForm" name="zone" style="max-width:80%;">
+						<option value="">Select shipping zone</option>
+						<option value="UK">United Kingdom £3.75</option>
+						<option value="EU">Europe £5.50</option>
+						<option value="RW">Rest of the world £9</option>
+					</select>
 						<input type="submit" value="Submit">
 						</form>
 					<?php 
