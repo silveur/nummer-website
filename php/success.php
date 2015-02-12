@@ -2,11 +2,24 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="/css/style.css">
 		<link rel="icon" type="image/jpg" href="images/favicon14px.jpg">
 		<title>NUMMER MUSIC</title>
 	</head>
 	<script src="js/scripts.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<style type="text/css">
+	body , h2
+	{
+		color: white;
+    	background-color: black;
+	}
+	a
+	{
+		color: white;
+		text-decoration: underline;
+	}
+	</style>
 	<body>
 		<?php
 			$releaseCAT = htmlspecialchars($_GET["cat"]);
