@@ -34,5 +34,5 @@
 		$return = mysqli_query($con, "UPDATE Orders SET Note='$note' WHERE Name='$name' AND CatalogueNumber='$item'");
 	}
 
-	header( "Location:http://localhost:8888/orders.php") ;
+	header( "Location:http://www.nummermusic.com/orders.php") ;
 ?>
