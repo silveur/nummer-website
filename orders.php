@@ -32,6 +32,7 @@
 				<tr>
 					<td><?php echo $row["Name"] ?></td>
 					<td><?php echo $row["Email"] ?></td>
+					<td><?php echo $row["Address"] ?></td>
 					<td><?php echo $row["Zone"] ?></td>
 					<td><?php echo $row["CatalogueNumber"] ?></td>
 					<td><?php echo $row["Status"] ?></td>

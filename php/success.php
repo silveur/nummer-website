@@ -42,8 +42,8 @@
 			$name = $FIRSTNAME  . ' ' . $LASTNAME;
 			$address = $SHIPTONAME . " " . $SHIPTOSTREET . " " . $SHIPTOZIP . " " . $SHIPTOCITY . " " . $SHIPTOCOUNTRYNAME;
 
-			mysqli_query($con, "INSERT INTO Orders (Address, Amount, CatalogueNumber, Email, Name, Status, Zone)
-								VALUES ('$address', '$AMT', '$releaseCAT', '$EMAIL', '$name', '$ACK', '$SHIPTOCOUNTRYCODE')");
+			mysqli_query($con, "INSERT INTO Orders (Address, Amount, CatalogueNumber, Email, Name, Status, Zone, Token)
+								VALUES ('$address', '$AMT', '$releaseCAT', '$EMAIL', '$name', '$ACK', '$SHIPTOCOUNTRYCODE', '$token')");
 
 			$result = mysqli_query($con,"SELECT * FROM Releases WHERE CatalogueNumber = '$releaseCAT'");
 			$row = mysqli_fetch_array($result);
