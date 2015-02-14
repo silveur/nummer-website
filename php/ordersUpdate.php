@@ -20,6 +20,7 @@
 	
 	if ($formAction == "add")
 	{
+		$address = addslashes($address);
 		mysqli_query($con, "INSERT INTO Orders (Address, Amount, CatalogueNumber, Email, Name, Status, Zone)
 								VALUES ('$address', '$price', '$item', '$email', '$name', '$status', '$country')");
 	}
@@ -33,6 +34,5 @@
 	{
 		$return = mysqli_query($con, "UPDATE Orders SET Note='$note' WHERE Name='$name' AND CatalogueNumber='$item'");
 	}
-
 	header( "Location:http://www.nummermusic.com/orders.php") ;
 ?>
