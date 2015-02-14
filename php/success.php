@@ -41,7 +41,8 @@
 
 			$name = $FIRSTNAME  . ' ' . $LASTNAME;
 			$address = $SHIPTONAME . " " . $SHIPTOSTREET . " " . $SHIPTOZIP . " " . $SHIPTOCITY . " " . $SHIPTOCOUNTRYNAME;
-
+			$address = addslashes($address);
+			$name = addslashes($name);
 			mysqli_query($con, "INSERT INTO Orders (Address, Amount, CatalogueNumber, Email, Name, Status, Zone, Token)
 								VALUES ('$address', '$AMT', '$releaseCAT', '$EMAIL', '$name', '$ACK', '$SHIPTOCOUNTRYCODE', '$token')");
 

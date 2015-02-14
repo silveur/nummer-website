@@ -3,5 +3,7 @@ Redirect /NUMM01 /?release=NUMM01
 Redirect /PBR004 /?release=PBR004
 Redirect /GOOD-05 /?release=GOOD-05
 Redirect /NJ01 /?release=NJ01
+Redirect /orders /php/orders.php
+Redirect /orders.php /php/orders.php
 
 DirectoryIndex /home.php
