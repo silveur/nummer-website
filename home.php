@@ -37,12 +37,8 @@
 	<div id="videoID"></div>
 		<?php
 			$releaseCAT = htmlspecialchars($_GET["release"]);
-			$pwd = file_get_contents('../pwd', true);
-			$usr = file_get_contents('../usr', true);
-			$usr=preg_replace('/\s+/', '', $usr);
-			$pwd=preg_replace('/\s+/', '', $pwd);
-			$con=mysqli_connect("localhost",$usr, $pwd, "NummerWebsite");
-			if (mysqli_connect_errno()) echo "Failed to connect to MySQL: " . mysqli_connect_error();
+			
+			include '/php/db.php';
 
 			$result = mysqli_query($con,"SELECT * FROM Releases WHERE CatalogueNumber = '$releaseCAT'");
 			$row = mysqli_fetch_array($result);
@@ -112,7 +108,6 @@
 				echo '<script type="text/javascript">' , 'loadContent(\''.$releaseCAT.'\');', '</script>';
 				echo '<script type="text/javascript">' , 'toggleVisibility();</script>';
 			}
-			mysql_close($con);
 		?>
 		<script type="text/javascript">
 		if ($('html').is('.ie6, .ie7, .ie8')) 
