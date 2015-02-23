@@ -1,0 +1,7 @@
+
+AuthName "Secure Area"
+AuthType Basic
+AuthUserFile /home/silveur/.htpasswd
+require valid-user
+
+DirectoryIndex /orders/home.php
