@@ -45,7 +45,7 @@
 					<td><?php echo $row["Status"] ?></td>
 					<td><?php echo $row["Amount"] ?></td>
 					<td>
-					<form action="ordersUpdate.php" method="POST">
+					<form action="../php/ordersUpdate.php" method="POST">
 						<input height="48" id="note" type="text" name="note" value="<?php echo $row["Note"] ?>">
 						<input id="name" type="hidden" name="name" value="<?php echo $row["Name"] ?>">
 						<input id="item" type="hidden" name="item" value="<?php echo $row["CatalogueNumber"] ?>">
@@ -53,7 +53,7 @@
 						<input type="submit" value="Update note">
 					</form></td>
 
-					<td> <form onsubmit="return confirm('Fais pas le con mec!');" action="ordersUpdate.php" method="POST">
+					<td> <form onsubmit="return confirm('Fais pas le con mec!');" action="../php/ordersUpdate.php" method="POST">
 						<input id="name" type="hidden" name="name" value="<?php echo $row["Name"] ?>">
 						<input id="item" type="hidden" name="item" value="<?php echo $row["CatalogueNumber"] ?>">
 						<input type="hidden" name="formAction" value="remove">
@@ -67,7 +67,7 @@
 
 			?>
 			<div><br>
-			<form action="ordersUpdate.php" method="POST">
+			<form action="../php/ordersUpdate.php" method="POST">
 				<input id="name" type="text" name="name" value="Name"><br>
 				<input id="email" type="text" name="email" value="Email"><br>
 				<input id="address" type="text" name="address" value="Address"><br>
