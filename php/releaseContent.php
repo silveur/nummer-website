@@ -1,7 +1,8 @@
-<?php require( "./app.php") ?>
+<?php require( $_SERVER['DOCUMENT_ROOT'] . "/php/app.php") ?>
 <?php
 	$releaseCAT = htmlspecialchars($_GET["release"]);
-	$row = query( "SELECT * FROM Releases WHERE CatalogueNumber = '$releaseCAT'" );
+	$result = mysqli_query($con, "SELECT * FROM Releases WHERE CatalogueNumber = '$releaseCAT'" );
+	$row = mysqli_fetch_array($result);
 ?>
 	<div id="releaseVideo">
 			<?php echo $row['VideoLink'];?>
