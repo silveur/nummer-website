@@ -3,5 +3,12 @@ Redirect /NUMM01 /?release=NUMM01
 Redirect /PBR004 /?release=PBR004
 Redirect /GOOD-05 /?release=GOOD-05
 Redirect /NJ01 /?release=NJ01
-
+Redirect /orders /php/orders.php
 DirectoryIndex /home.php
+
+<FilesMatch "orders.php">
+AuthName "Secure Area"
+AuthType Basic
+AuthUserFile /Users/silvereletellier/.htpasswd
+require valid-user
+</FilesMatch>

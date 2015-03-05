@@ -154,4 +154,10 @@ video#bgvid
 	color: black;
 }
 
+.updateForm
+{
+	width: 30%;
+	height: 20px;
+	text-align: center;
+}
 
