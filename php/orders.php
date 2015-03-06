@@ -82,6 +82,16 @@
 						<input type="hidden" name="formAction" value="update">
 						<input type="submit" value="Update">
 					</form></td>
+					<td>
+					<form action="ordersUpdate.php" method="POST">
+						<input id="ID" type="hidden" name="ID" value="<?php echo $row["ID"] ?>">
+						<input type="hidden" name="formAction" value="email">
+						<?php 
+							$status = $row["Status"];
+							if ($status != 'Shipped')
+								echo '<input type="submit" value="Mark as shipped">';
+						?>
+					</form></td>
 				</tr>
 			<?php
 		}

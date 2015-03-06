@@ -32,6 +32,22 @@
 		mysqli_query($con, $queryVar);
 		header('Location:orders.php');
 	}
+	else if ($formAction == "email")
+	{
+		$queryVar = "UPDATE Orders SET Status='Shipped' WHERE ID='$ID'";
+		mysqli_query($con, $queryVar);
+
+		$result = mysqli_query($con, "SELECT * FROM Orders WHERE ID = $ID");
+		$row = $result->fetch_assoc();
+
+		$subject = $row['CatalogueNumber'] . ' - Shipping confirmation';
+		$message = "Hey your order has been dispatched." . "\r\n" . "Cheers" . "\r\n" . "Nummer";
+		$headers = 'From: Nummer Music <contact@nummermusic.com>' . "\r\n" .
+		    'Reply-To: contact@nummermusic.com' . "\r\n" .
+		    'X-Mailer: PHP/' . phpversion();
+		mail($row['Email'], $subject, $message, $headers);
+		header('Location:orders.php');
+	}
 	else if ($formAction == "add")
 	{
 		$result = mysqli_query($con, 'SELECT ID FROM Orders ORDER BY ID DESC LIMIT 1;');
@@ -80,7 +96,7 @@
 			<br>Note:<br>
 			<input class="updateForm" name="note" value="<?php echo $row['Note']; ?>"><br>
 			<input type="hidden" name="formAction" value="submit">
-			<input type="hidden" name="ID" value="<?php echo $row['ID']; ?>">
+			<input type="hidden" name="ID" value="<?php echo $row['ID']; ?>"><br>
 			<input type="submit" value="Submit changes">
 		</form></div>
 		<div><br>
@@ -88,7 +104,9 @@
 			<input type="hidden" name="formAction" value="delete">
 			<input type="hidden" name="ID" value="<?php echo $row['ID']; ?>">
 			<input type="submit" value="Delete entry">
-		</form></center></div>
+		</form></div>
+
+		</div></center>
 	<?php
 	?>
 
