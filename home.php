@@ -59,7 +59,7 @@
 					$array = array();
 		   			while (false !== ($entry = readdir($handle))) 
 		   			{
-		   				if ($entry != "." && $entry != ".." && $entry != ".DS_Store" && $entry != "NJ01") 
+		   				if ($entry != "." && $entry != ".." && $entry != ".DS_Store") 
 					    {
 					    	$fileUrl = $dir . $entry . "/Artworks/" ;
 					    	$artwork = $fileUrl . $entry . ".png ";
