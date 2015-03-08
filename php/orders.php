@@ -88,7 +88,7 @@
 						<input type="hidden" name="formAction" value="email">
 						<?php 
 							$status = $row["Status"];
-							if ($status != 'Shipped')
+							if (stristr($status, 'Shipped') === False && stristr($status, 'pick') === False)
 								echo '<input type="submit" value="Mark as shipped">';
 						?>
 					</form></td>
